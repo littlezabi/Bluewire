@@ -13,7 +13,7 @@ echo '<div id="K-ckwxeer">';
 file_exists($renderFrontend) ? require($renderFrontend) : require(FRONTEND . "home.phtml");
 if (count($t) > 0) printError($t);
 
-//footer  
+//footer sections
 $renderBackend = BACKEND . "footer.php";
 $renderFrontend = FRONTEND . "footer.phtml";
 file_exists($renderBackend) ? require($renderBackend) : $t[] = 'Error to load file: ' . $renderBackend;
