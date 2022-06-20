@@ -1,0 +1,11 @@
+{
+  "name": "scss-compiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "--watch node-sass -w scss/ -o css/ --recursive"
+  },
+  "author": "LittleZabi",
+  "license": "ISC"
+}

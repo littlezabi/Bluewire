@@ -1,0 +1,11 @@
+footer{
+    width: 100%;
+    min-height: 200px;
+    color: var(--reflex-color);
+    background-color: var(--mid-xzewx-bg);
+    & .info{
+        padding: 10px;
+        text-align: center;
+        font-family: $font-primary;
+    }
+}

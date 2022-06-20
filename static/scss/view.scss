@@ -1,0 +1,11 @@
+.head-links {
+  & a {
+    color: var(--link-normal);
+    font-weight: bold;
+    font-size: 14px;
+    &.active {
+      color: var(--link-active);
+    }
+  }
+  cursor: pointer;
+}
