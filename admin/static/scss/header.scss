@@ -1,0 +1,12 @@
+header {
+  background-color: var(--nav-bg);
+  z-index: 1;
+  color: var(--common-reflex);
+  & nav {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+  }
+}

@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+body {
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+  margin: 0;
+  font-family: $font-primary;
+}
+#K-ckwxeer {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+textarea,
+select {
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: $font-primary;
+}
+.page-size {
+  max-width: 1300px;
+  margin: auto;
+}
+.closable-wrap {
+  background-color: var(--mid-xzewx-bg) !important;
+  color: var(--mid-xzewx-reflex);
+  border: 2px solid var(---border-dark);
+  & i {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  & a {
+    color: var(--mid-xzewx-reflex);
+  }
+  & button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--mid-xzewx-reflex);
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+}
+.flex {
+  display: flex;
+}
+
+.flex-around {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
