@@ -10,18 +10,23 @@ const handlePage = (page, self) => {
   renderPage(page);
 };
 
-const renderPage = (page) => {
-  loading(renderView, true);
+const renderPage = async (page) => {
   renderView.innerHTML = page;
-  console.log("adding");
-  setTimeout(() => {
-    console.log("fasting");
-    loading(renderView, false);
-  }, 2000);
+  loading(renderView, true, (overwrite = true));
+  await axios
+    .get("/admin/view/" + page + ".phtml")
+    .then((response) => {
+      console.log(response.data);
+      renderView.innerHTML = response.data;
+      loading(renderView, false);
+    })
+    .catch((err) => {
+      loading(renderView, false);
+      renderView.innerHTML = `<span class="error error-message">${page} page not found . <br/><br/>Error: ${err.message}</span>`;
+    });
 };
 
 function loading(location, action, overwrite = true) {
-  console.log(location, action);
   let loadingElem = null;
   try {
     loadingElem = document.querySelector(".loading-content-anim");

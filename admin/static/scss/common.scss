@@ -116,3 +116,13 @@ select {
     width: 40%;
   }
 }
+.error-message {
+  color: #e91e63;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 15px;
+  display: block;
+  font-family: consolas;
+  text-transform: capitalize;
+}
