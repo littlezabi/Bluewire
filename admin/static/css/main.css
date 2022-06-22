@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 :root {
   --mid-xzewx-bg: #03071a;
+  --mid-form-bg: #03071abf;
   --nav-bg: #0d19529e;
   --common-border: 1px solid rgba(173, 216, 230, 0.174);
   --common-bg: #0d1952cb;
@@ -150,6 +151,25 @@ select {
   text-transform: capitalize;
 }
 
+.message {
+  display: block;
+  font-size: 14px !important;
+  text-transform: none !important;
+  margin: 5px auto;
+}
+.message.alert {
+  color: #ffc600;
+}
+.message.success {
+  color: #00f8ff;
+}
+.message.error {
+  color: #ff5722;
+}
+.message.dispaly-none {
+  display: none;
+}
+
 .mid-xzewx {
   background: var(--mid-xzewx-bg);
   color: var(--reflex-color);
@@ -190,6 +210,57 @@ select {
     top: -20px;
     transform: rotate(360deg);
   }
+}
+
+.login-view {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+}
+.login-view form {
+  width: 400px;
+  background-color: var(--mid-form-bg);
+  border: var(--common-border);
+  padding: 30px 15px;
+  border-radius: 8px;
+  color: var(--mid-xzewx-reflex);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px 1px rgba(25, 51, 172, 0.4117647059);
+}
+.login-view form span {
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.login-view form label {
+  display: block;
+  padding: 5px 0;
+}
+.login-view form input {
+  background-color: rgba(255, 255, 255, 0.1019607843);
+  padding: 10px;
+  border: var(--common-border);
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--reflex-color);
+  margin-bottom: 11px;
+}
+.login-view form input[type=submit] {
+  height: 43px;
+  font-size: 16px;
+  background: #383c55;
+  color: white;
+  width: 100%;
+  margin: auto;
+  text-transform: uppercase;
+  border: var(--common-border);
+  border-radius: 5px;
 }
 
 .admin-main {

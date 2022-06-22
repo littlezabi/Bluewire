@@ -126,3 +126,21 @@ select {
   font-family: consolas;
   text-transform: capitalize;
 }
+.message {
+  display: block;
+  font-size: 14px !important;
+  text-transform: none !important;
+  margin: 5px auto;
+  &.alert {
+    color: #ffc600;
+  }
+  &.success {
+    color: #00f8ff;
+  }
+  &.error {
+    color: #ff5722;
+  }
+  &.dispaly-none {
+    display: none;
+  }
+}

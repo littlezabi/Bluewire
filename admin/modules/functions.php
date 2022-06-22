@@ -2,7 +2,13 @@
 
 function LogginStatus()
 {
-    //    ('status');
+
+    if (isset($_SESSION['admin'])) return $_SESSION['admin']['name'];
+    else return 0;
+}
+function cleanString($con, $str)
+{
+    return $con->real_escape_string($str);
 }
 function getPage()
 {
@@ -16,7 +22,7 @@ function getPage()
 }
 function _print($str)
 {
-    echo '<pre>';
+    echo '<pre style="background: #2b3c70;color:white;padding:20px 10px;font-size:20px">';
     print_r($str);
     echo '</pre>';
 }

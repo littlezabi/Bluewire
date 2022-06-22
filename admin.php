@@ -2,6 +2,9 @@
 define('PATH', __DIR__);
 require_once __DIR__ . '/admin/modules/constants.php';
 require_once __DIR__ . '/admin/modules/functions.php';
+require_once __DIR__ . '/lib/database.php';
+
+
 $isLogged = LogginStatus();
 $renderPage = getPage();
 $renderBackend = BACKEND . "$renderPage.php";

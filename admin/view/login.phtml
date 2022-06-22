@@ -1,0 +1,45 @@
+<?php
+require_once FRONTEND . 'header.phtml';
+
+if (isset($_POST['login'])) {
+    $username = cleanString($con, $_POST['username']);
+    $password = cleanString($con, $_POST['password']);
+    $password = md5($password);
+
+    if ($username != '' && $password != '') {
+        $sql = "SELECT * FROM `admin` WHERE `username` = '$username' AND `password` = '$password'";
+        $query = $con->query($sql);
+        if ($query->num_rows > 0) {
+            $user = $query->fetch_assoc();
+            $_SESSION['admin']['name'] = $user['username'];
+            $_SESSION['admin']['id'] = $user['id'];
+            header('Location: /admin.php');
+        } else {
+            $_SESSION['message']['text'] = 'User not found please check your admin username and password';
+            $_SESSION['message']['type'] = 'alert';
+        }
+    } else {
+        $_SESSION['message']['text'] = 'Enter email and password!';
+        $_SESSION['message']['type'] = 'error';
+    }
+}
+
+?>
+<main>
+    <?php require_once COMPONENTS . 'middle-view.php'; ?>
+    <div class="admin-main page-size">
+        <div class="login-view">
+            <form action="/admin.php?view=login" method="POST">
+                <span>Admin Login</span>
+                <span class="message <?php echo $_SESSION['message']['type'] ?? 'display-none' ?>"><?php echo $_SESSION['message']['text'] ?? ''; ?></span>
+                <label for="username">Enter Username</label>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <label for="password">Enter Password</label>
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="hidden" name="login" value="login">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <?php unset($_SESSION['message']); ?>
+    </div>
+</main>

@@ -1,5 +1,9 @@
 <?php
 require_once FRONTEND . 'header.phtml';
+
+if (!$isLogged) {
+    header('location: /admin.php?view=login');
+}
 ?>
 <main>
     <?php require_once COMPONENTS . 'middle-view.php'; ?>
