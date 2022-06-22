@@ -25,7 +25,7 @@
         padding: 14px;
         background: var(--li-bg);
         margin-top: 2px;
-        border-radius: 5px;
+        // border-radius: 5px;
         transition: 300ms;
         &:hover {
           filter: brightness(200%);
@@ -36,12 +36,16 @@
             font-size: 20px;
           }
         }
-      }
-      & a {
-        color: var(--common-reflex);
-        width: 100%;
+        border: 1px solid transparent;
+        border-top: none;
+        border-bottom: none;
         display: flex;
         justify-content: space-between;
+        color: var(--common-reflex);
+        &.active {
+          border-color: #525a7a70;
+          filter: brightness(200%);
+        }
       }
     }
   }

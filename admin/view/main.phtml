@@ -3,45 +3,40 @@ require_once FRONTEND . 'header.phtml';
 ?>
 <main>
     <?php require_once COMPONENTS . 'middle-view.php'; ?>
-    <div class="admin-main">
+    <div class="admin-main page-size">
         <div class="xyz-left">
             <ul class="left-ul">
-                <li>
-                    <a href="/admin.php">
-                        <span>
-                            <i class="fa fa-dashboard"></i>Dashboard
-                        </span>
-                        <i class="fa fa-caret-right"></i>
-                    </a>
+                <li onclick="handlePage('dashboard',this)">
+                    <span>
+                        <i class="fa fa-dashboard"></i>Dashboard
+                    </span>
+                    <i class="fa fa-caret-right"></i>
                 </li>
-                <li>
-                    <a href="/admin.php?view=devices-list">
-                        <span>
-                            <i class="fa fa-mobile"></i>Devices List
-                        </span>
-                        <i class="fa fa-caret-right"></i>
-                    </a>
+                <li onclick="handlePage('device-list',this)">
+                    <span>
+                        <i class="fa fa-mobile"></i>Devices List
+                    </span>
+                    <i class="fa fa-caret-right"></i>
                 </li>
-                <li>
-                    <a href="/admin.php?view=devices-list">
-                        <span>
-                            <i class="fa fa-plus"></i>Add Devices
-                        </span>
-                        <i class="fa fa-caret-right"></i>
-                    </a>
+                <li onclick="handlePage('add-new',this)">
+                    <span>
+                        <i class="fa fa-plus"></i>Add Devices
+                    </span>
+                    <i class="fa fa-caret-right"></i>
                 </li>
-                <li>
-                    <a href="/admin.php?view=devices-list">
-                        <span>
-                            <i class="fa fa-users"></i>contact
-                        </span>
-                        <i class="fa fa-caret-right"></i>
-                    </a>
+                <li onclick="handlePage('contacts',this)">
+                    <span>
+                        <i class="fa fa-users"></i>contact
+                    </span>
+                    <i class="fa fa-caret-right"></i>
                 </li>
             </ul>
         </div>
         <div class="xyz-right">
-            right side
+            <div id="render-view">
+                right side
+
+            </div>
         </div>
     </div>
 </main>

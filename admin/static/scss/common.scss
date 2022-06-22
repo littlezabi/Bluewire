@@ -68,3 +68,51 @@ select {
   justify-content: space-between;
   align-items: center;
 }
+.loading-content-anim {
+  width: 90%;
+  height: 400px;
+  padding: 20px;
+  overflow: hidden;
+  & > span {
+    width: 100%;
+    background-color: rgba(3, 7, 26, 0.1803921569);
+    display: block;
+    height: 60px;
+    margin-top: 5px;
+    overflow: hidden;
+    border-radius: 8px;
+    &::after {
+      content: " ";
+      background: linear-gradient(45deg, #03071a42, #0000);
+      height: 100%;
+      width: 100%;
+      display: block;
+      opacity: 0;
+      animation: animeLoad 1s cubic-bezier(1, -0.37, 0.5, 1.79) forwards
+        infinite;
+      @keyframes animeLoad {
+        0% {
+          opacity: 0;
+          transform: translateX(0);
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+  & .long {
+    width: 50%;
+  }
+  & .height {
+    height: 120px;
+    width: 80%;
+  }
+  & .short {
+    width: 40%;
+  }
+}
