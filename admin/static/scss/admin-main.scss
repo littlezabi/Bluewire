@@ -21,10 +21,8 @@
       }
       & li {
         cursor: pointer;
-        display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 7px;
+        padding: 14px;
         background: var(--li-bg);
         margin-top: 2px;
         border-radius: 5px;
@@ -34,7 +32,16 @@
         }
         & i {
           width: 33px;
+          &.fa-mobile {
+            font-size: 20px;
+          }
         }
+      }
+      & a {
+        color: var(--common-reflex);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

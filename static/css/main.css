@@ -13,6 +13,11 @@
   --link-normal: rgb(13, 31, 63);
   --link-active: rgb(0, 89, 255);
   ---border-dark: rgb(41, 17, 108);
+  --wire-line: #01030c24;
+  --tag1Txt: white;
+  --tag1: rgb(255, 0, 132);
+  --tag2Txt: white;
+  --tag2: rgb(118, 4, 218);
 }
 
 body {
@@ -74,6 +79,22 @@ select {
   padding: 0;
   margin: 0;
   cursor: pointer;
+}
+
+.tag-1,
+.tag-2 {
+  padding: 4px 6px;
+  background: var(--tag1);
+  color: var(--tag1Txt);
+  font-size: 12px;
+  display: inline-block;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.tag-2 {
+  background: var(--tag2);
+  color: var(--tag2Txt);
 }
 
 .flex {
@@ -477,6 +498,18 @@ header .ul-iewlc li a {
     padding-left: 8px;
   }
 }
+footer {
+  width: 100%;
+  min-height: 200px;
+  color: var(--reflex-color);
+  background-color: var(--mid-xzewx-bg);
+}
+footer .info {
+  padding: 10px;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+}
+
 .head-links {
   cursor: pointer;
 }
@@ -489,16 +522,79 @@ header .ul-iewlc li a {
   color: var(--link-active);
 }
 
-footer {
-  width: 100%;
-  min-height: 200px;
-  color: var(--reflex-color);
-  background-color: var(--mid-xzewx-bg);
+.reflex-head-hu {
+  background: linear-gradient(90deg, #673ab7, #3f51b5, #5200e2) !important;
 }
-footer .info {
-  padding: 10px;
+.reflex-head-hu div.item-ckw span {
+  color: #dbdbdb !important;
+}
+
+.device-showcase {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.device-showcase img {
+  padding: 0 10px;
+}
+.device-showcase div.right {
+  margin-left: 24px;
+  margin-right: 10px;
+}
+.device-showcase div.right .short-details {
+  border-top: 1px solid var(--wire-line);
+  padding: 10px 0;
+}
+.device-showcase .short-details .item {
+  margin-top: 5px;
+}
+.device-showcase .short-details .item i {
+  width: 20px;
+  font-size: 18px;
   text-align: center;
-  font-family: "Rubik", sans-serif;
+}
+.device-showcase .short-details .item span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #03071a;
+}
+
+.more-details {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.more-details section {
+  max-width: 50%;
+  min-width: 30%;
+}
+.more-details section .title {
+  font-weight: bold;
+  padding: 15px 0;
+  display: block;
+}
+.more-details section table th {
+  text-align: left;
+  font-size: 14px;
+  border-radius: 1px solid blue;
+  padding-left: 9px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1411764706);
+}
+.more-details section table td {
+  font-size: 14px;
+  font-weight: normal;
+  padding-left: 30px;
+}
+
+.more-like-dv table tr {
+  height: 41px;
+  text-align: left;
+}
+.more-like-dv table th, .more-like-dv table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
 }
 
 /*# sourceMappingURL=main.css.map */

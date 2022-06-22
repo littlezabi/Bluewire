@@ -59,6 +59,20 @@ select {
     cursor: pointer;
   }
 }
+.tag-1,
+.tag-2 {
+  padding: 4px 6px;
+  background: var(--tag1);
+  color: var(--tag1Txt);
+  font-size: 12px;
+  display: inline-block;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+.tag-2 {
+  background: var(--tag2);
+  color: var(--tag2Txt);
+}
 .flex {
   display: flex;
 }
