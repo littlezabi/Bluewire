@@ -26,3 +26,36 @@ function loading(location, action, overwrite = true) {
     }
   }
 }
+function handleInfoInputs(element, title) {
+  let parentNode = element.parentNode;
+  let childNode = parentNode.childNodes[3];
+  console.log(childNode);
+  let html = `<div class="list-pair">
+                <input type="text" class="in-title"
+                  placeholder="${title} info title here"
+                />
+                <input
+                type="text"
+                  class="in-value"
+                  placeholder="${title} details value here"
+                />
+              </div>`;
+  childNode.innerHTML += html;
+}
+function setMessage(text, type) {
+  let html = `<div class="message open ${type}">
+                <span class="text close" onclick="handleMessage(this)">&times;</span>
+                <span class="text">${text}</span>
+              </div>`;
+  document.querySelector(".message-box").innerHTML += html;
+}
+function handleMessage(element) {
+  closeMessage(element.parentNode);
+}
+function closeMessage(element) {
+  element.classList.remove("open");
+  element.classList.add("closing");
+  setTimeout(() => {
+    element.remove();
+  }, 600);
+}

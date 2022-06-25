@@ -14,9 +14,8 @@ const handlePage = (page, self) => {
 const renderPage = async (page) => {
   loading(renderView, true, (overwrite = true));
   await axios
-    .get("/admin/view/" + page + ".phtml")
+    .get("/admin/view/" + page + ".php")
     .then((response) => {
-      console.log(response.data);
       renderView.innerHTML = response.data;
       loading(renderView, false);
     })

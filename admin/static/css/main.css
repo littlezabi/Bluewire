@@ -170,6 +170,63 @@ select {
   display: none;
 }
 
+.message-box {
+  position: fixed;
+  top: 14px;
+  right: 0;
+  color: white;
+  z-index: 2;
+}
+.message-box .message {
+  background: #2196f3;
+  border-radius: 0px;
+  padding: 5px 11px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 5px;
+  width: 300px;
+  overflow: hidden;
+}
+.message-box .message.info {
+  background: #2196f3;
+}
+.message-box .message.alert {
+  background: #ff0000;
+}
+.message-box .message.error {
+  background: #ff9100;
+}
+.message-box .message.closing {
+  opacity: 1;
+  animation: fade-out 600ms ease-in forwards 1;
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(300px, 100px);
+  }
+}
+.message-box .message .text {
+  display: block;
+  color: white;
+  margin: 0 5px;
+}
+.message-box .message .text.close {
+  margin: 0 5px;
+  padding: 0 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 200ms;
+}
+.message-box .message .text.close:hover {
+  color: #000000;
+}
+
 .mid-xzewx {
   background: var(--mid-xzewx-bg);
   color: var(--reflex-color);
@@ -263,6 +320,138 @@ select {
   border-radius: 5px;
 }
 
+.form-view {
+  padding: 10px 20px;
+}
+.form-view .head-title {
+  font-size: 24px;
+  text-transform: capitalize;
+  margin: 9px 0;
+  display: block;
+}
+.form-view label {
+  text-transform: capitalize;
+  display: block;
+  padding: 5px 0;
+}
+.form-view input {
+  background-color: rgba(255, 255, 255, 0.1019607843);
+  padding: 10px;
+  border: var(--common-border);
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--reflex-color);
+  margin-bottom: 11px;
+  width: 70%;
+}
+.form-view input[type=submit] {
+  height: 43px;
+  font-size: 16px;
+  background: #383c55;
+  color: white;
+  width: 100%;
+  margin: auto;
+  text-transform: uppercase;
+  border: var(--common-border);
+  border-radius: 5px;
+}
+.form-view .editable {
+  min-height: 42px;
+  background: var(--common-bg);
+  border: var(--common-border);
+  border-radius: 6px;
+  padding: 5px;
+  outline: none;
+  margin: 5px 0;
+  margin-bottom: 10px;
+}
+.form-view .title {
+  margin-top: 10px;
+  display: block;
+  border-bottom: var(--common-border);
+  padding-bottom: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.form-view .title i {
+  font-size: 14px;
+  color: #9191fb;
+  margin-right: 10px;
+}
+.form-view .info-list {
+  width: 100%;
+}
+.form-view .info-x {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.form-view .info-x i {
+  background: var(--link-normal);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: var(--common-border);
+  cursor: pointer;
+  transition: 200ms;
+}
+.form-view .info-x i:hover {
+  background-color: var(--reflex-color);
+  color: var(--link-normal);
+}
+.form-view .list-pair {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.form-view .list-pair input {
+  margin: 0 8px;
+}
+
+.some-kinda div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.some-kinda i {
+  width: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+.some-kinda input[type=date] {
+  width: 200px;
+  margin: 0 21px;
+}
+
+.button-view {
+  -webkit-user-modify: f;
+  display: flex;
+  justify-content: flex-end;
+}
+.button-view button {
+  width: 200px;
+  height: 40px;
+  background: orangered;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  margin-right: 7px;
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  cursor: pointer;
+  transition: 200ms;
+}
+.button-view button:nth-child(2) {
+  background: #2196f3;
+}
+.button-view button:hover {
+  filter: brightness(130%);
+}
+
 .admin-main {
   display: flex;
   align-items: flex-start;
@@ -329,6 +518,10 @@ header nav {
   justify-content: space-between;
   align-items: center;
   height: 40px;
+}
+header .logo {
+  font-family: "Bebas Neue", cursive;
+  font-size: 28px;
 }
 
 footer {

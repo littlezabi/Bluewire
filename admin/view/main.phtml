@@ -2,12 +2,18 @@
 require_once FRONTEND . 'header.phtml';
 
 if (!$isLogged) {
+    echo '<script>window.location.href = "/admin.php?view=login"</script>';
     header('location: /admin.php?view=login');
 }
 ?>
 <main>
     <?php require_once COMPONENTS . 'middle-view.php'; ?>
     <div class="admin-main page-size">
+
+        <div class="message-box">
+
+        </div>
+
         <div class="xyz-left">
             <ul class="left-ul">
                 <li onclick="handlePage('dashboard',this)">
@@ -38,7 +44,7 @@ if (!$isLogged) {
         </div>
         <div class="xyz-right">
             <div id="render-view">
-                right side
+
 
             </div>
         </div>

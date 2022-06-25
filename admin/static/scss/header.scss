@@ -9,4 +9,8 @@ header {
     align-items: center;
     height: 40px;
   }
+  & .logo {
+    font-family: $font-secondary;
+    font-size: 28px;
+  }
 }
