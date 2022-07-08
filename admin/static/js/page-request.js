@@ -1,14 +1,12 @@
 let prevActiveBtn = null;
 let currentPage = null;
 const renderView = document.getElementById("render-view");
-const handlePage = (page, self) => {
-  if (prevActiveBtn) {
-    prevActiveBtn.classList.remove("active");
-  }
+const handlePage = (page, self, params = {}) => {
+  if (self === null) self = document.querySelector("ul.left-ul li");
+  if (prevActiveBtn) prevActiveBtn.classList.remove("active");
   self.classList.add("active");
   prevActiveBtn = self;
-
-  renderPage(page);
+  renderPage(page, (params = params));
 };
 
 const renderPage = async (page, params = {}) => {
@@ -30,7 +28,9 @@ const renderPage = async (page, params = {}) => {
 };
 renderPage("edit");
 const refreshPage = () => {
-  let v = window.confirm("You are agree to Clear all");
+  let v = window.confirm(
+    "You are agree to refresh this will Clear all inputs."
+  );
   if (v) renderPage(currentPage);
 };
 const reloadPage = () => renderPage(currentPage);

@@ -18,15 +18,21 @@ const handleClose = (e) => {
 const Save = (element) => {
   const pairs = document.querySelectorAll("#form-data .info-x");
   let data = [];
+  let icon = "fa fa-feather";
   pairs.forEach((kilo) => {
     let childrens = kilo.childNodes;
     var dataPair = {};
+    try {
+      icon = kilo.parentNode.childNodes[1].childNodes[0].className;
+    } catch {
+      icon = "fa fa-feather";
+    }
     for (let i = 0; i < childrens.length; i++) {
       let childNode = childrens[i];
       var pairName = "";
       if (childNode.nodeName === "INPUT") {
         pairName = childNode.value;
-        dataPair = { name: pairName };
+        dataPair = { name: pairName, icon };
       }
       if (childNode.hasChildNodes()) {
         let pairsList = childNode.childNodes;
@@ -67,27 +73,9 @@ const Save = (element) => {
     data = [...data, dataPair];
   });
   const name = document.querySelector("#form-data #name");
-  // const description = document.querySelector("#form-data #description");
-  // const imgFile = document.querySelector("#form-data #image-file");
-
-  // const imgLink = document.querySelector("#form-data #image-link");
-  // document.querySelector("#form-data #desc-input").value = btoa(
-  //   description.innerHTML
-  // );
   document.querySelector("#form-data #data-input").value = JSON.stringify(data);
   if (name.value != "") document.querySelector("#form-data form").submit();
 };
-// window.onbeforeunload = function (event) {
-//   let name_check = document.querySelector("#form-data #name");
-//   if (name_check.value != "") return confirm("Confirm refresh");
-// };
-
-// const icons = document.querySelectorAll("i");
-// console.log("icons: ", icons);
-// icons.forEach((e) => {
-//   console.log(e);
-//   e.innerHTML = "&times;";
-// });
 
 const handleDelete = (id, confirm = false, device = "") => {
   console.log(id, confirm);
@@ -150,8 +138,12 @@ const handleStatus = (id, status = 1, confirm = false, device = "") => {
     );
 };
 const handleEdit = (id, confirm = false, device = "") => {
+  element = null;
+  try {
+    element = document.querySelector("#edit-li");
+  } catch {}
   if (confirm) {
-    renderPage("edit", (params = { id, edit: 1 }));
+    handlePage((page = "edit"), (self = element), (params = { id, edit: 1 }));
     handleCloseAlertModel();
   } else
     createAlert(

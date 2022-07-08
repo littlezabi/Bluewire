@@ -8,6 +8,36 @@ function RedirectTo($msg = '', $type = '', $location = '/')
     header('Location:' . $location);
     exit();
 }
+if (isset($_POST['edit-device'])) {
+    $name = cleanString($con, $_POST['name']);
+    $id = cleanString($con, $_POST['device-id']);
+    $desc = cleanString($con, $_POST['description']);
+    $data = cleanString($con, $_POST['data']);
+    $imageLink = cleanString($con, $_POST['image-link']);
+    if ($name == '') {
+        RedirectTo($msg = 'Give a name to your device.', $type = "alert", $location = '/admin.php');
+    }
+    $imagePath = $imageLink;
+    $imageFile = $_FILES['image-file'];
+
+    if ($imageLink == '') {
+        if (isset($imageFile['name']) && $imageFile['name'] != '') {
+
+            $newName = rand(999999, 99999999) . $imageFile['name'];
+            $imageFolder = '../../assets/images/' . $newName;
+            $imagePath = '/assets/images/' . $newName;
+            if (move_uploaded_file($imageFile['tmp_name'], $imageFolder)) {
+            }
+        }
+    }
+    $sql = "UPDATE devices SET `name` ='$name', `description` = '$desc',`image` = '$imagePath', `device_data` = '$data'";
+    $query = $con->query($sql);
+    if ($query) {
+        RedirectTo($msg = $name . ' Updated Successfully.', $type = "success", $location = '/admin.php');
+    } else {
+        RedirectTo($msg = 'Error occured.', $type = "error", $location = '/admin.php');
+    }
+}
 if (isset($_POST['new-device'])) {
     $name = cleanString($con, $_POST['name']);
     $desc = cleanString($con, $_POST['description']);

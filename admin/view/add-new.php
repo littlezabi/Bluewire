@@ -58,7 +58,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-mobile"></i> Body</span>
       <div class="info-x" id="Body">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Body" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Body info title here" />
@@ -71,7 +71,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-display"></i> Display</span>
       <div class="info-x" id="Display">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Display" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Display info title here" />
@@ -84,7 +84,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-train"></i> Platform</span>
       <div class="info-x" id="Platform">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Plateform" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Platform info title here" />
@@ -97,7 +97,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-memory"></i> Memory</span>
       <div class="info-x" id="Memory">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Memory" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Memory info title here" />
@@ -110,7 +110,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-camera"></i> Main camera</span>
       <div class="info-x" id="Main camera">
-        <input type="hidden" name="info-title" value="mancamera" />
+        <input type="hidden" name="info-title" value="Main Camera" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Main camera info title here" />
@@ -121,9 +121,9 @@
       </div>
     </div>
     <div class="info">
-      <span class="title"><i class="fa fa-camera"></i> Front camera</span>
+      <span class="title"><i class="fa fa-camera"></i>Front camera</span>
       <div class="info-x" id="Front camera">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Front Camera" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Front camera info title here" />
@@ -134,9 +134,9 @@
       </div>
     </div>
     <div class="info">
-      <span class="title"><i class="fa fa-volume-high"></i> Sound</span>
+      <span class="title"><i class="fa fa-volume-high"></i>Sound</span>
       <div class="info-x" id="Sound">
-        <input type="hidden" name="info-title" value="sound" />
+        <input type="hidden" name="info-title" value="Sound" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Sound info title here" />
@@ -147,9 +147,9 @@
       </div>
     </div>
     <div class="info">
-      <span class="title"><i class="fa fa-comment"></i> Communicates</span>
+      <span class="title"><i class="fa fa-comment"></i>Communicates</span>
       <div class="info-x" id="Communicates">
-        <input type="hidden" name="info-title" value="communicates" />
+        <input type="hidden" name="info-title" value="Communicates" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Communicates info title here" />
@@ -162,7 +162,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-feather"></i> Features</span>
       <div class="info-x" id="Features">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Features" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Features info title here" />
@@ -175,7 +175,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-battery"></i> Battery</span>
       <div class="info-x" id="Battery">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Battery" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Battery info title here" />
@@ -189,7 +189,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-brush"></i> Misc</span>
       <div class="info-x" id="Misc">
-        <input type="hidden" name="info-title" value="Timeline" />
+        <input type="hidden" name="info-title" value="Misc" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Misc info title here" />
@@ -202,7 +202,7 @@
     <div class="info">
       <span class="title"><i class="fa fa-link"></i> Downloadable Links</span>
       <div class="info-x" id="downloadableLinks">
-        <input type="hidden" name="info-title" value="downloadable" />
+        <input type="hidden" name="info-title" value="Downloadable Links" />
         <div class="info-list">
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Downloadable Links info title here" />
