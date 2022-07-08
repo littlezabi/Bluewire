@@ -13,12 +13,12 @@
     padding: 5px 0;
   }
   & input {
-    background-color: rgba(255, 255, 255, 0.1019607843);
+    background-color: #00000021;
     padding: 10px;
     border: var(--common-border);
     border-radius: 4px;
     font-size: 16px;
-    color: var(--reflex-color);
+    color: #000;
     margin-bottom: 11px;
     width: 70%;
   }
@@ -34,7 +34,6 @@
     border-radius: 5px;
   }
   & .editable {
-    min-height: 42px;
     background: var(--common-bg);
     border: var(--common-border);
     border-radius: 6px;
@@ -42,6 +41,8 @@
     outline: none;
     margin: 5px 0;
     margin-bottom: 10px;
+    width: 100%;
+    min-height: 81px;
   }
   & .info {
   }
@@ -68,7 +69,7 @@
     align-items: center;
     justify-content: flex-start;
     & i {
-      background: var(--link-normal);
+      background: #f70a6b;
       width: 30px;
       height: 30px;
       border-radius: 50%;
@@ -78,9 +79,10 @@
       border: var(--common-border);
       cursor: pointer;
       transition: 200ms;
+      color: white;
       &:hover {
-        background-color: var(--reflex-color);
-        color: var(--link-normal);
+        background-color: white;
+        color: #f70a6b;
       }
     }
   }
@@ -112,26 +114,47 @@
   }
 }
 .button-view {
-  -webkit-user-modify: f;
   display: flex;
   justify-content: flex-end;
   & button {
-    width: 200px;
-    height: 40px;
-    background: orangered;
+    width: 219px;
+    height: 48px;
+    background: #ff0158;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     margin-right: 7px;
     font-size: 16px;
-    font-family: $font-primary;
+    font-family: "Rubik", sans-serif;
     cursor: pointer;
     transition: 200ms;
-    &:nth-child(2) {
-      background: #2196f3;
+    &:nth-child(1) {
+      background: #f0f0f0;
+      color: #ff0158;
+      height: auto;
+      width: 97px;
     }
     &:hover {
       filter: brightness(130%);
     }
+  }
+}
+.file-inputs-radio {
+  & input[type="radio"] {
+    cursor: pointer;
+    width: 20px;
+    margin: 10px 20px;
+  }
+}
+.file-inputs {
+  & .close {
+    font-size: 33px;
+    height: 46px;
+    margin: 0 11px;
+    width: 24px;
+    cursor: pointer;
+  }
+  & input#image-link {
+    display: none;
   }
 }

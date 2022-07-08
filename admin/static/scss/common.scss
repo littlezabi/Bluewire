@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: #000000;
   padding: 0;
   margin: 0;
   font-family: $font-primary;
@@ -75,7 +75,7 @@ select {
   overflow: hidden;
   & > span {
     width: 100%;
-    background-color: rgba(3, 7, 26, 0.1803921569);
+    background-color: #03071a0a;
     display: block;
     height: 60px;
     margin-top: 5px;
@@ -83,7 +83,7 @@ select {
     border-radius: 8px;
     &::after {
       content: " ";
-      background: linear-gradient(45deg, #03071a42, #0000);
+      background: linear-gradient(45deg, #e91e631c, #0000);
       height: 100%;
       width: 100%;
       display: block;
@@ -165,7 +165,6 @@ select {
     padding: 5px 11px;
     display: flex;
     align-items: center;
-
     justify-content: flex-start;
     margin-top: 5px;
     width: 300px;
@@ -180,10 +179,11 @@ select {
         }
         100% {
           opacity: 0;
-          transform: translate(300px, 100px);
+          transform: translateX(100px);
         }
       }
     }
+
     & .text {
       display: block;
       color: white;
@@ -197,6 +197,65 @@ select {
         &:hover {
           color: #000000;
         }
+      }
+    }
+  }
+}
+.view-alert {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.1607843137);
+  backdrop-filter: blur(3px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  z-index: 2;
+  & .inner-alert {
+    background: #fff;
+    /* min-width: 100%; */
+    max-width: 600px;
+    padding: 7px 24px;
+    border-radius: 6px;
+    box-shadow: 0 0 12px 1px #0000003b;
+    border: 1px solid #e91e636b;
+    & .head {
+      display: flex;
+      justify-content: space-between;
+      & span {
+        &:nth-child(2) {
+          font-size: 20px;
+          padding: 0px 8px;
+          color: #e91e63;
+          cursor: pointer;
+        }
+      }
+    }
+    & .msg {
+      padding: 10px 0;
+      display: block;
+    }
+    & button {
+      min-width: 140px;
+      min-height: 32px;
+      background: #e91e63;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-family: $font-primary;
+      margin-right: 6px;
+      text-transform: capitalize;
+      cursor: pointer;
+      transition: 200ms;
+      outline: none;
+      &.accent {
+        background: #3f51b5;
+      }
+      &:hover {
+        filter: brightness(120%);
       }
     }
   }

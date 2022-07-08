@@ -1,5 +1,5 @@
 <?php
-require_once FRONTEND . 'header.phtml';
+// require_once FRONTEND . 'header.phtml';
 
 if (isset($_POST['login'])) {
     $username = cleanString($con, $_POST['username']);
@@ -27,7 +27,7 @@ if (isset($_POST['login'])) {
 ?>
 <main>
     <?php require_once COMPONENTS . 'middle-view.php'; ?>
-    <div class="admin-main page-size">
+    <div class="page-size">
         <div class="login-view">
             <form action="/admin.php?view=login" method="POST">
                 <span>Admin Login</span>

@@ -17,7 +17,10 @@ file_exists($renderFrontend) ? require($renderFrontend) : require(FRONTEND . "ma
 if (count($t) > 0) printError($t);
 
 //footer sections
-$renderBackend = BACKEND . "footer.php";
-$renderFrontend = FRONTEND . "footer.phtml";
+if ($renderPage != 'login') {
+
+    $renderBackend = BACKEND . "footer.php";
+    $renderFrontend = FRONTEND . "footer.phtml";
+}
 file_exists($renderBackend) ? require($renderBackend) : $t[] = 'Error to load file: ' . $renderBackend;
 file_exists($renderFrontend) ? require($renderFrontend) : $t[] = 'Error to load file: ' . $renderFrontend;

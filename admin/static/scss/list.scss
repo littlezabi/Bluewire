@@ -1,0 +1,40 @@
+.list-view {
+  & h3 {
+    margin: 24px 8px;
+    display: block;
+    color: #e91e63;
+  }
+  & table {
+    width: 100%;
+    margin: 10px 0;
+    & td {
+      max-width: 300px;
+      padding: 12px 5px;
+      border-bottom: 1px solid #e91e6330;
+      font-size: 14px;
+    }
+    & tr {
+      padding: 5px;
+    }
+    & th {
+      text-align: left;
+    }
+    & button {
+      /* background-color: blue; */
+      padding: 5px 10px;
+      border: 1px solid #e91e634a;
+      background: #e91e63;
+      color: white;
+      font-family: $font-primary;
+      border-radius: 3px;
+      cursor: pointer;
+      &.edit {
+        background: #673ab7;
+      }
+      &.status {
+        background: #607d8b;
+        border-color: #9e9e9e;
+      }
+    }
+  }
+}

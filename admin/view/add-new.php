@@ -2,14 +2,31 @@
 <div class="form-view" id="form-data">
   <span class="head-title">Add new device</span>
   <div class="button-view">
-    <button class="form-btn">Clear all</button>
+    <button class="form-btn" onclick="refreshPage()">Clear all</button>
     <button class="form-btn" onclick="Save(this)">Save</button>
   </div>
-  <form action="">
+  <form action="<?php echo '/admin/modules/executer.php';  ?>" method="POST" enctype="multipart/form-data">
     <label for="name">device name</label>
-    <input type="text" name="name" id="name" placeholder="Enter here" />
+    <input type="text" name="name" id="name" required placeholder="Enter here" />
     <label for="name">description</label>
-    <div id="description" class="editable" contenteditable="true"></div>
+    <textarea id="description" name="description" class="editable"></textarea>
+    <input type="hidden" name="data" id="data-input">
+    <input type="hidden" name="new-device" value="1">
+    <div class="flex file-inputs-radio">
+      <div>
+        <span>Select a image</span>
+        <input type="radio" value="image-file" onclick="handleImageType('image-file')" name="image" checked id="#image-file">
+      </div>
+      <div>
+        <span>Use image link</span>
+        <input type="radio" value="image-link" onclick="handleImageType('image-link')" name="image" id="image-link">
+      </div>
+    </div>
+    <div class="flex file-inputs">
+      <input type="file" name="image-file" id="image-file">
+      <input type="text" placeholder="Enter image link..." name="image-link" id="image-link">
+      <span class="close" onclick="clearInputs(this)">&times;</span>
+    </div>
 
     <div class="info">
       <span class="title"><i class="fa fa-wifi"></i> Networks</span>
@@ -19,6 +36,7 @@
           <div class="list-pair">
             <input type="text" class="in-title" placeholder="Network info title here" />
             <input type="text" class="in-value" placeholder="Network details value here" />
+
           </div>
         </div>
         <i onclick="handleInfoInputs(this, 'Network')" class="fa fa-plus"></i>
