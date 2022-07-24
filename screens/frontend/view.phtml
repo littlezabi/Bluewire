@@ -8,21 +8,28 @@ require_once FRONTEND . 'header.phtml';
         <div class="home-left">
             <div class="head-links">
                 <a href="<?php echo URLFormate('/') ?>">Home</a> /
-                <a class="active" href="<?php echo URLFormate('view', '32') ?>">Device Name</a>
+                <a class="active" href="<?php echo URLFormate('view', $data['id']) ?>"><?php echo $data['name']; ?></a>
             </div>
-            <div class="closable-wrap  flex-around">
-                <a href="#">
-                    <i class="fa fa-rss"></i>
-                    BlueWire FRP Tool 2.7.1 - Remove Samsung FRP one click
-                    <i class="fa fa-external-link"></i>
+            <?php
+            $y = getItem('Extra Links');
+            if ($y[0]) {
+                foreach ($y[2] as $h) {
+            ?>
+                    <div class="closable-wrap  flex-around">
+                        <a target="_blank" href="<?php echo $h->value; ?>">
+                            <i class="fa fa-rss"></i>
+                            <?php echo $h->title; ?>
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                        <button onclick="handleClose(this)">&times;</button>
+                    </div>
+            <?php }
+            } ?>
 
-                </a>
-                <button onclick="handleClose(this)">&times;</button>
-            </div>
             <div class="reflex-head-hu">
                 <div class="items">
                     <div class="item-title-bar">
-                        <span class="title">Download Xiaomi Redmi 5 Firmware - Redmi 5 ROM TWRP Files</span>
+                        <span class="title"><?php echo $data['name']; ?></span>
                         <div class="item-ckw">
                             <div class="shareable-links">
                                 <div>
@@ -57,105 +64,116 @@ require_once FRONTEND . 'header.phtml';
                 </div>
             </div>
             <div class="device-showcase">
-                <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="">
+                <img src="<?php echo $data['image']; ?>" alt="">
                 <div class="right">
                     <p>
-                        Xiaomi Redmi 5 with codename is rosy Firmware includes Global Firmware (Global ROM), China Firmware (China ROM), Stable MIUI and Beta MIUI. This is full list of Xiaomi Redmi 5. Xiaomi Redmi 5 may called with other names like MDG1, MDI1, MDE1, MDT1. China ROM, Firmware is for China region, there are only English, Chinese and No Google Services. Global ROM, Firmware is for Global region and almost can flash for China phone with unlocked bootloader. They have multilanguage and Google Services, china apps removed. All file download from MiFirm is Free. Fastboot firmware, ZIP firmware is official from Xiaomi. EU ROM, TWRP and Other files is unofficial. Use at your own risk.
+                        <?php echo $data['description']; ?>
                     </p>
                     <div class="short-details">
                         <div class="item">
                             <i class="fa fa-calendar"></i>
                             <span>
-                                Released 2020, October 02
+                                <?php
+                                $k = getItem('Timeline');
+                                if ($k[0]) {
+                                    foreach ($k as $e) {
+                                        if (gettype($e) == 'array') {
+                                            foreach ($e as $b) {
+                                                echo strtolower($b->title) == 'announced' ? $b->title . ' ' . $b->value . ' / '  : '';
+                                                echo strtolower($b->title) == 'released' ? $b->title . ' ' . $b->value : '';
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                                ?>
                             </span>
                         </div>
                         <div class="item">
                             <i class="fa fa-mobile"></i>
                             <span>
-                                190g, 8.4mm thickness
+                                <?php
+                                $k = getItem('Body');
+                                if ($k[0]) {
+                                    foreach ($k as $e) {
+
+                                        if (gettype($e) == 'array') {
+                                            foreach ($e as $b) {
+                                                echo strtolower($b->title) == 'weight' ? $b->title . ' ' . $b->value . ' / '  : '';
+                                                echo strtolower($b->title) == 'thickness' ? $b->title . ' ' . $b->value : '';
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                                ?>
                             </span>
                         </div>
                         <div class="item">
                             <i class="fa fa-android"></i>
                             <span>
-                                Android 7.1.2, MIUI 11
+                                <?php
+                                $k = getItem('Plateform');
+                                if ($k[0]) {
+                                    foreach ($k as $e) {
+                                        if (gettype($e) == 'array') {
+                                            foreach ($e as $b) {
+                                                echo strtolower($b->title) == 'os' ? $b->title . ' ' . $b->value : '';
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                                ?>
                             </span>
                         </div>
                         <div class="item">
                             <i class="fa fa-hdd-o"></i>
                             <span>
-                                16GB/32GB/64GB storage, microSDXC
+                                <?php
+                                $k = getItem('Memory');
+                                if ($k[0]) {
+                                    foreach ($k as $e) {
+                                        if (gettype($e) == 'array') {
+                                            foreach ($e as $b) {
+                                                echo strtolower(trim($b->title)) == 'internal storage' || strtolower($b->title) == 'storage' ? $b->title . ' ' . $b->value . ' ' : '';
+                                                echo strtolower(trim($b->title)) == 'ram'  ? $b->title . '  ' . $b->value : '';
+                                            }
+                                            break;
+                                        }
+                                    }
+                                } ?>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="more-details">
-                <section>
-                    <span class="title">Networks</span>
-                    <table>
-                        <tr>
-                            <th>Technology</th>
-                            <td>GSM / CDMA / HSPA / EVDO / LTE / 5G</td>
-                        </tr>
-                        <tr>
-                            <th>3G</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora nobis vel repellat veniam fugit? Aspernatur, nulla sunt. Porro, perferendis delectus tempore temporibus voluptate similique eius veniam quibusdam nulla quae ipsam.</td>
-                        </tr>
-                        </thead>
-                    </table>
-                </section>
-                <section>
-                    <span class="title">TIMELINE</span>
-                    <table>
-                        <tr>
-                            <th>Announced</th>
-                            <td>2020, September 23</td>
-                        </tr>
-                        <tr>
-                            <th>Released</th>
-                            <td>Released 2020, October 02</td>
-                        </tr>
-                        </thead>
-                    </table>
-                </section>
-                <section>
-                    <span class="title">BODY</span>
-                    <table>
-                        <tr>
-                            <th>Dimensions</th>
-                            <td>159.8 x 74.5 x 8.4 mm (6.29 x 2.93 x 0.33 in)</td>
-                        </tr>
-                        <tr>
-                            <th>Weight</th>
-                            <td>190 g (6.70 oz)</td>
-                        </tr>
-                        <tr>
-                            <th>Build</th>
-                            <td>Glass front, plastic back, aluminum frame</td>
-                        </tr>
-                        <tr>
-                            <th>SIM</th>
-                            <td>190 g (6.70 oz)Single SIM (Nano-SIM) or Hybrid Dual SIM (Nano-SIM, dual stand-by)</td>
-                        </tr>
-                        </thead>
-                    </table>
-                </section>
-                <section>
-                    <span class="title">DISPLAY</span>
-                    <table>
-                        <tr>
-                            <th>Card slot</th>
-                            <td>microSDXC (uses shared SIM slot)</td>
-                        </tr>
-                        <tr>
-                            <th>Internal</th>
-                            <td>128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM
-                                UFS 3.1</td>
-                        </tr>
-                        </thead>
-                    </table>
-                </section>
+                <?php
+                $i = 0;
+                foreach ($info as $item) {
+                    if (isset($item->values[0]) && count($item->values[0]) > 0) {
+                ?>
+                        <section>
+                            <span class="title"><?php echo $item->name ?></span>
+                            <table>
+                                <?php foreach ($item->values[0] as $q) { ?>
+                                    <tr>
+                                        <th><?php echo $q->title ?></th>
+                                        <td><?php echo $q->value ?></td>
+                                    </tr>
+                                <?php } ?>
+                                </thead>
+                            </table>
+                        </section>
+                <?php
+                        $i++;
+                    }
+                }
+
+                ?>
+
+
             </div>
             <div class="closable-wrap  flex-around">
                 <span>

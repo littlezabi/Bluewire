@@ -1,1 +1,1 @@
-<script src="/admin/static/js/main.js"></script>
+<script src="/static/js/main.js"></script>

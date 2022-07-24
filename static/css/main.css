@@ -402,11 +402,15 @@ header .ul-iewlc li a {
   transition: 200ms;
   border: 1px solid rgba(0, 0, 255, 0);
   color: black;
-  width: 156px;
+  width: 275px;
+  text-transform: uppercase;
 }
 .items-list a:hover {
   background: rgba(3, 7, 26, 0.031372549);
   border: 1px solid rgba(0, 0, 255, 0.0784313725);
+}
+.items-list a img {
+  width: 100%;
 }
 .items-list a .type .title {
   background-color: #a6b5f8;
@@ -418,7 +422,8 @@ header .ul-iewlc li a {
 }
 
 @media (max-width: 1280px) {
-  .home-bluf .home-left > div, .home-bluf .home-right > div {
+  .home-bluf .home-left > div,
+.home-bluf .home-right > div {
     padding: 14px;
     margin: 14px 5px;
   }
@@ -427,7 +432,8 @@ header .ul-iewlc li a {
   }
 }
 @media (max-width: 1024px) {
-  .home-bluf .home-left > div, .home-bluf .home-right > div {
+  .home-bluf .home-left > div,
+.home-bluf .home-right > div {
     padding: 14px;
     margin: 14px 5px;
   }
@@ -452,7 +458,8 @@ header .ul-iewlc li a {
   }
 }
 @media (max-width: 768px) {
-  .home-bluf .home-left, .home-bluf .home-right {
+  .home-bluf .home-left,
+.home-bluf .home-right {
     width: 95%;
   }
   .items-list a {
@@ -464,7 +471,8 @@ header .ul-iewlc li a {
   .shareable-links {
     margin: 7px;
   }
-  .home-bluf .home-left > div, .home-bluf .home-right > div {
+  .home-bluf .home-left > div,
+.home-bluf .home-right > div {
     font-size: 14px;
   }
 }
@@ -485,7 +493,8 @@ header .ul-iewlc li a {
   .home-bluf .items .item-title-bar div.item-ckw a i {
     font-size: 14px;
   }
-  .home-bluf .home-left > div, .home-bluf .home-right > div {
+  .home-bluf .home-left > div,
+.home-bluf .home-right > div {
     padding: 14px 9px;
   }
 }

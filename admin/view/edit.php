@@ -2,7 +2,7 @@
 ob_start("ob_gzhandler");
 require_once '../modules/database.php';
 // $_GET['edit'] = 1;
-// $_GET['id'] = 14;
+// $_GET['id'] = 19;
 if (isset($_GET['edit'])) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM devices WHERE id = $id";
@@ -15,14 +15,14 @@ if (isset($_GET['edit'])) {
         exit();
     }
     if (count($data) > 0) {
-        echo '<pre>';
+
         $deviceData = json_decode($data[0]['device_data']);
         $name  = $data[0]['name'];
         $desc  = $data[0]['description'];
         $image  = $data[0]['image'];
         $deviceId = $data[0]['id'];
-        // print_r($data[0]);
-        echo '</pre>';
+        $ddCode = $data[0]['deviceCode'];
+        $cntry = $data[0]['countries'];
     }
     function line($str)
     {
@@ -44,6 +44,10 @@ if (isset($_GET['edit'])) {
             <input type="text" value="<?php echo $name; ?>" name="name" id="name" required placeholder="Enter here" />
             <label for="name">description</label>
             <textarea name="description" id="description" class="editable"><?php echo $desc; ?></textarea>
+            <label for="name">Device Code</label>
+            <input type="text" value="<?php echo $ddCode; ?>" name="device-code" placeholder="Device Code here..." />
+            <label for="name">Countries <small>(Seperate country name with comma).</small></label>
+            <input type="text" value="<?php echo $cntry; ?>" name="countries" placeholder="PAK, TR, UAE, etc..." />
             <input type="hidden" name="device-id" value="<?php echo $deviceId; ?>">
             <input type="hidden" name="data" id="data-input">
             <input type="hidden" name="edit-device" value="1">
@@ -68,6 +72,7 @@ if (isset($_GET['edit'])) {
             <div class="info">
                 <?php
                 foreach ($deviceData as $info) {
+
                     if (isset($info->values)) {
                         $values = $info->values[0];
                 ?>

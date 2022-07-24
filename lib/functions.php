@@ -4,14 +4,14 @@ function getPage()
     if (isset($_GET['page'])) {
         if ($_GET['page'] != '')
             return $_GET['page'];
-        else return 'view';
+        else return 'home';
     } else {
-        return 'view';
+        return 'home';
     }
 }
 function _print($str)
 {
-    echo '<pre>';
+    echo '<pre style="background:#222;color:white;padding: 20px 10px;border-radius:10px">';
     print_r($str);
     echo '</pre>';
 }

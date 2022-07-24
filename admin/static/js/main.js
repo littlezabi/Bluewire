@@ -74,6 +74,7 @@ const Save = (element) => {
   });
   const name = document.querySelector("#form-data #name");
   document.querySelector("#form-data #data-input").value = JSON.stringify(data);
+  console.log(data);
   if (name.value != "") document.querySelector("#form-data form").submit();
 };
 

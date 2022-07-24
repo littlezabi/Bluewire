@@ -12,6 +12,10 @@
     <textarea id="description" name="description" class="editable"></textarea>
     <input type="hidden" name="data" id="data-input">
     <input type="hidden" name="new-device" value="1">
+    <label for="name">Device Code</label>
+    <input type="text" name="device-code" placeholder="Device Code here..." />
+    <label for="name">Countries <small>(Seperate country name with comma).</small></label>
+    <input type="text" name="countries" placeholder="PAK, TR, UAE, etc..." />
     <div class="flex file-inputs-radio">
       <div>
         <span>Select a image</span>
@@ -22,11 +26,13 @@
         <input type="radio" value="image-link" onclick="handleImageType('image-link')" name="image" id="image-link">
       </div>
     </div>
+
     <div class="flex file-inputs">
       <input type="file" name="image-file" id="image-file">
       <input type="text" placeholder="Enter image link..." name="image-link" id="image-link">
       <span class="close" onclick="clearInputs(this)">&times;</span>
     </div>
+
 
     <div class="info">
       <span class="title"><i class="fa fa-wifi"></i> Networks</span>
@@ -34,9 +40,8 @@
         <input type="hidden" name="info-title" value="Networks" />
         <div class="info-list">
           <div class="list-pair">
-            <input type="text" class="in-title" placeholder="Network info title here" />
-            <input type="text" class="in-value" placeholder="Network details value here" />
-
+            <input type="text" value="Technology" class="in-title" placeholder="Network info title here" />
+            <input type="text" class="in-value" placeholder="GSM / CDMA / HSPA / LTE / 5G / etc." />
           </div>
         </div>
         <i onclick="handleInfoInputs(this, 'Network')" class="fa fa-plus"></i>
@@ -48,8 +53,12 @@
         <input type="hidden" name="info-title" value="Timeline" />
         <div class="info-list">
           <div class="list-pair">
-            <input type="text" class="in-title" placeholder="Timeline info title here" />
-            <input type="text" class="in-value" placeholder="Timeline details value here" />
+            <input type="text" class="in-title" value="Announced" placeholder="Timeline info title here" />
+            <input type="text" class="in-value" placeholder="eg: 2020, September 28 ....." />
+          </div>
+          <div class="list-pair">
+            <input type="text" class="in-title" value="Released" placeholder="Timeline info title here" />
+            <input type="text" class="in-value" placeholder="eg: 2022, June 2 ....." />
           </div>
         </div>
         <i onclick="handleInfoInputs(this, 'Timeline')" class="fa fa-plus"></i>
@@ -61,8 +70,12 @@
         <input type="hidden" name="info-title" value="Body" />
         <div class="info-list">
           <div class="list-pair">
-            <input type="text" class="in-title" placeholder="Body info title here" />
-            <input type="text" class="in-value" placeholder="Body details value here" />
+            <input type="text" value="Weight" class="in-title" placeholder="Body info title here" />
+            <input type="text" class="in-value" placeholder="eg: 190g" />
+          </div>
+          <div class="list-pair">
+            <input type="text" value="Thickness" class="in-title" placeholder="Body info title here" />
+            <input type="text" class="in-value" placeholder="eg: 8.4mm" />
           </div>
         </div>
         <i onclick="handleInfoInputs(this, 'Body')" class="fa fa-plus"></i>
@@ -82,16 +95,16 @@
       </div>
     </div>
     <div class="info">
-      <span class="title"><i class="fa fa-train"></i> Platform</span>
-      <div class="info-x" id="Platform">
+      <span class="title"><i class="fa fa-train"></i> Plateform</span>
+      <div class="info-x" id="Plateform">
         <input type="hidden" name="info-title" value="Plateform" />
         <div class="info-list">
           <div class="list-pair">
-            <input type="text" class="in-title" placeholder="Platform info title here" />
-            <input type="text" class="in-value" placeholder="Platform details value here" />
+            <input type="text" value="OS" class="in-title" placeholder="Plateform info title here" />
+            <input type="text" class="in-value" placeholder="Plateform details value here" />
           </div>
         </div>
-        <i onclick="handleInfoInputs(this, 'Platform')" class="fa fa-plus"></i>
+        <i onclick="handleInfoInputs(this, 'Plateform')" class="fa fa-plus"></i>
       </div>
     </div>
     <div class="info">
@@ -100,8 +113,8 @@
         <input type="hidden" name="info-title" value="Memory" />
         <div class="info-list">
           <div class="list-pair">
-            <input type="text" class="in-title" placeholder="Memory info title here" />
-            <input type="text" class="in-value" placeholder="Memory details value here" />
+            <input type="text" value="Storage" class="in-title" placeholder="Memory info title here" />
+            <input type="text" class="in-value" placeholder="eg: 128GB" />
           </div>
         </div>
         <i onclick="handleInfoInputs(this, 'Memory')" class="fa fa-plus"></i>
@@ -212,5 +225,20 @@
         <i onclick="handleInfoInputs(this, 'Downloadable Links')" class="fa fa-plus"></i>
       </div>
     </div>
+    <div class="info">
+      <span class="title"><i class="fa fa-link"></i>Extra Links</span>
+      <div class="info-x" id="Extra Links">
+        <input type="hidden" name="info-title" value="Extra Links" />
+        <div class="info-list">
+          <div class="list-pair">
+            <input type="text" class="in-title" placeholder="here is the text of the link" />
+            <input type="text" class="in-value" placeholder="link is here..." />
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
   </form>
 </div>

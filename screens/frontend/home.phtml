@@ -70,107 +70,43 @@ require_once FRONTEND . 'header.phtml';
                     <input type="text" placeholder="Search a model..." class="search-input">
                 </div>
                 <div class="items-list">
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span style="background: #ffaec9" class="title">IN</span>
-                                <span style="background: #c0f97d" class="title">PAK</span>
-                                <span class="title">AFG</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="item-cell">
-                            <img src="https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" alt="...">
-                            <br>
-                            <h5>Redmi Note 11 Pro 4G</h5>
-                            <span class="modal-code">(Vida)</span>
-                            <div class="type">
-                                <span class="title">IN</span>
-                            </div>
-                        </div>
-                    </a>
+                    <?php
+                    while ($items = $query->fetch_all(MYSQLI_ASSOC)) {
+
+                        foreach ($items as $item) {
+                            $name = $item['name'];
+                            $image = $item['image'];
+                            $id = $item['id'];
+                            $deviceCode = $item['deviceCode'];
+                            $cntry = $item['countries'];
+                    ?>
+
+                            <a href="/?page=view&id=<?php echo $id; ?>">
+                                <div class="item-cell">
+                                    <img src="<?php echo $image == '' ? "https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" : $image; ?>" alt="...">
+                                    <br>
+                                    <h5><?php echo $name; ?></h5>
+
+                                    <?php echo $deviceCode != '' ? '<span class="modal-code">(' . $deviceCode . ')</span>' : '' ?>
+                                    <div class="type">
+                                        <?php
+                                        $countries = explode(',', $cntry);
+                                        foreach ($countries as $c) {
+                                            if ($c != '') {
+                                                $t = rand(0, $colorsLen);
+                                        ?>
+                                                <span style="background: <?php echo $colors[$t]; ?>" class="title"><?php echo $c; ?></span>
+                                        <?php }
+                                        } ?>
+                                    </div>
+                                </div>
+                            </a>
+                    <?php
+                        }
+                    }
+
+                    ?>
+
                 </div>
             </div>
         </div>
