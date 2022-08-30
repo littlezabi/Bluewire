@@ -1,3 +1,7 @@
 
 **/logs
 node_modules
+images
+.jpeg
+*.png
+.jpg
