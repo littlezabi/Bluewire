@@ -533,6 +533,113 @@ select {
   display: none;
 }
 
+.title-and-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.title-and-btn button {
+  width: 201px;
+  height: 37px;
+  border-radius: 5px;
+  border: none;
+  background: #2196f3;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-right: 22px;
+  cursor: pointer;
+  transition: 300ms;
+}
+.title-and-btn button:hover {
+  background: #1e7ecb;
+}
+.title-and-btn button:focus {
+  box-shadow: 0 0 0px 4px rgba(30, 144, 255, 0.2588235294);
+}
+
+.form-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7882352941);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.form-modal.active {
+  opacity: 0;
+  animation: modal-fade-in 500ms linear 1 forwards;
+}
+@keyframes modal-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.form-modal .form-inner-modal {
+  background: #fff;
+  max-width: 600px;
+  padding: 19px 18px;
+  border-radius: 5px;
+}
+.form-modal .form-inner-modal .modal-title {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7411764706);
+}
+.form-modal .form-inner-modal fieldset {
+  border-color: rgba(0, 0, 0, 0.168627451);
+  border-width: 1px;
+  border-radius: 3px;
+  padding: 17px 11px;
+  min-width: 400px;
+}
+.form-modal .form-inner-modal label {
+  color: #000;
+  margin: 6px 2px;
+  display: block;
+  font-size: 14px;
+}
+.form-modal .form-inner-modal input, .form-modal .form-inner-modal textarea {
+  display: block;
+  width: 96%;
+  border: 1px solid rgba(0, 0, 0, 0.3490196078);
+  height: 38px;
+  padding: 0 6px;
+  border-radius: 7px;
+}
+.form-modal .form-inner-modal input:focus, .form-modal .form-inner-modal textarea:focus {
+  box-shadow: 0 0 0px 3px rgba(3, 82, 244, 0.2);
+  border: 1px solid rgba(30, 144, 255, 0.5607843137);
+}
+.form-modal .form-inner-modal button {
+  margin-top: 10px;
+  width: 157px;
+  height: 36px;
+  background: dodgerblue;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form-modal .form-inner-modal button:focus {
+  box-shadow: 0 0 0px 3px rgba(30, 144, 255, 0.2705882353);
+}
+.form-modal .form-inner-modal textarea {
+  height: 75px;
+  padding: 9px 7px;
+}
+
 .admin-main {
   display: flex;
   align-items: stretch;
@@ -648,6 +755,16 @@ select {
   border-radius: 31px;
   font-size: 15px;
 }
+.empty {
+  color: #c6d0d8;
+  margin: 50px 0;
+  display: block;
+  text-align: center;
+  font-size: 37px;
+  font-weight: normal;
+  font-style: italic;
+}
+
 .list-view h3 {
   margin: 24px 8px;
   display: block;

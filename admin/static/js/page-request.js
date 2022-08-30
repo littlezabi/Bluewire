@@ -26,7 +26,7 @@ const renderPage = async (page, params = {}) => {
       renderView.innerHTML = `<span class="error error-message">${page} page not found . <br/><br/>Error: ${err.message}</span>`;
     });
 };
-renderPage("edit");
+renderPage("modals-list");
 const refreshPage = () => {
   let v = window.confirm(
     "You are agree to refresh this will Clear all inputs."

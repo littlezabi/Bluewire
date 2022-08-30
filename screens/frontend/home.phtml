@@ -3,7 +3,6 @@ require_once FRONTEND . 'header.phtml';
 ?>
 <main>
     <?php require_once COMPONENTS . 'middle-view.php'; ?>
-
     <div class="home-bluf page-size">
         <div class="home-left">
             <div>
@@ -11,63 +10,24 @@ require_once FRONTEND . 'header.phtml';
                 Consectetur sed accusamus rerum voluptates est assumenda, accusantium totam illo consequuntur provident fuga adipisci id aut neque ut ipsum doloribus nisi sapiente, sequi beatae dolores molestias. Velit vitae est culpa.
                 Quae animi ullam, vero aliquam nemo repudiandae culpa neque quam quisquam consectetur porro exercitationem consequuntur officiis eveniet debitis illum pariatur recusandae? Repudiandae sint dolorum quae doloribus, deserunt neque explicabo impedit.
                 Neque, eius rem aliquid quia voluptatem consectetur itaque harum vel est labore quas nisi error officiis fugit eum, nihil minus numquam laudantium ratione earum quo placeat ab. Vitae, error nostrum!
-
             </div>
             <div></div>
             <div class="reflex-item">
                 <div class="items">
                     <div class="item-title-bar">
                         <span class="title">Mobile Firmware Library name</span>
-                        <div class="item-ckw">
-
-                            <div class="shareable-links">
-                                <div>
-                                    <span onclick="handleShare()">
-                                        <i class="fa fa-share-alt"></i> share
-                                    </span>
-                                    <a href="#">
-                                        <i class="fa fa-at"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fa fa-whatsapp"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-telegram"></i>
-
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="filters">
-                                <select name="" id="">
-                                    <option value="">Date</option>
-                                    <option value="">Name</option>
-                                </select>
-                                <select style="" name="" id="">
-                                    <option value="">All</option>
-                                    <option value="">China</option>
-                                    <option value="">Global</option>
-                                    <option value="">EEA</option>
-                                </select>
-                            </div>
-                        </div>
+                        <?php require_once COMPONENTS . 'share-buttons.php' ?>
                     </div>
                 </div>
             </div>
             <div>
                 <div class="search-input">
                     <i class="fa fa-mobile"></i>
-                    <input type="text" placeholder="Search a model..." class="search-input">
+                    <div id="search-wrap" class="home">
+                        <input type="text" id="search-input" placeholder="Search a model..." class="search-input">
+                        <div class="srch-results">
+                        </div>
+                    </div>
                 </div>
                 <div class="items-list">
                     <?php
@@ -110,16 +70,6 @@ require_once FRONTEND . 'header.phtml';
                 </div>
             </div>
         </div>
-        <div class="home-right">
-            <div>
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati necessitatibus, quo dolorum ut harum ad, debitis suscipit tempora molestiae veritatis magni nobis iusto! Tenetur laudantium minus consequatur nostrum, voluptatem corrupti!
-            </div>
-            <div>
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati necessitatibus, quo dolorum ut harum ad, debitis suscipit tempora molestiae veritatis magni nobis iusto! Tenetur laudantium minus consequatur nostrum, voluptatem corrupti!
-            </div>
-        </div>
-
+        <?php require_once COMPONENTS . 'side-bar.php' ?>
     </div>
 </main>

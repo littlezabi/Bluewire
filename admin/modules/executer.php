@@ -1,3 +1,4 @@
+
 <?php
 require_once './functions.php';
 require_once './database.php';
@@ -8,6 +9,10 @@ function RedirectTo($msg = '', $type = '', $location = '/')
     header('Location:' . $location);
     exit();
 }
+
+if (isset($_POST['newModal'])) {
+}
+
 if (isset($_POST['edit-device'])) {
     $name = cleanString($con, $_POST['name']);
     $id = cleanString($con, $_POST['device-id']);
@@ -64,7 +69,8 @@ if (isset($_POST['new-device'])) {
             }
         }
     }
-    $sql = "INSERT INTO devices (`name`, `description`,`image`, `device_data`, `countries`, `deviceCode`)
+    $sql = "INSERT INTO devices (
+        `name`, `description`,`image`, `device_data`, `countries`, `deviceCode`)
     VALUES('$name', '$desc','$imagePath', '$data', '$cntry', '$ddCode')";
     $query = $con->query($sql);
     if ($query) {
@@ -78,6 +84,14 @@ if (isset($_GET['delete'])) {
     $id = cleanString($con, $_GET['id']);
     $sql = "DELETE FROM  devices WHERE id = $id";
     $q = $con->query(($sql));
+    exit('success');
+}
+if (isset($_GET['modal-status'])) {
+    $id = cleanString($con, $_GET['id']);
+    $status = cleanString($con, $_GET['current']);
+    $status = $status ? 0 : 1;
+    $sql = "UPDATE `side-modals` SET status = $status WHERE id = $id";
+    $q = $con->query($sql);
     exit('success');
 }
 if (isset($_GET['status'])) {

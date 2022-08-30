@@ -2,7 +2,7 @@
 <?php
 // if(isset($_GET['']))
 require_once('../modules/database.php');
-$sql = "SELECT * FROM devices WHERE 1 ORDER BY id DESC LIMIT 25";
+$sql = "SELECT * FROM `side-modals` WHERE 1 ORDER BY id DESC LIMIT 25";
 $query = $con->query($sql);
 $data = [];
 if ($query->num_rows > 0) {
@@ -12,7 +12,11 @@ if ($query->num_rows > 0) {
 ?>
 
 <div class="list-view">
-    <h3>Devices List</h3>
+    <div class="title-and-btn">
+        <h3>Modals List</h3>
+        <button onclick="newModal()" title="add new modal">Add new Modal</button>
+    </div>
+
     <?php
     if (count($data) > 0) {
     ?>
@@ -21,8 +25,9 @@ if ($query->num_rows > 0) {
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Device</th>
-                    <th>Description</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Status</th>
                     <th>Action</th>
                     <th>Added At</th>
                 </tr>
@@ -33,15 +38,13 @@ if ($query->num_rows > 0) {
                 ?>
                     <tr style="background: <?php echo $item['status'] == 1 ? '#25ff003d' : '#e91e6338' ?>">
                         <td><?php echo $item['id']; ?></td>
-                        <td><?php echo $item['name']; ?></td>
-                        <td><?php
-
-                            echo strlen($item['description']) > 100 ?  substr($item['description'], 0, 100) . '...' : $item['description'];
-                            ?></td>
+                        <td><?php echo $item['title']; ?></td>
+                        <td><?php echo $item['body'] ?></td>
+                        <td><?php echo $item['status'] ? 'Active' : 'Disabled' ?></td>
                         <td>
-                            <button class="status" onclick="handleStatus(<?php echo $item['id'] ?>,status=<?php echo $item['status']; ?>,confirm=false, device='<?php echo $item['name']; ?>')"><?php echo $item['status'] == 1 ? 'Disable' : 'Active' ?></button>
-                            <button class="edit" onclick="handleEdit(<?php echo $item['id'] ?>, confirm=false, device='<?php echo $item['name']; ?>' )">Edit</button>
-                            <button onclick="handleDelete(<?php echo $item['id'] ?>,confirm=false, device='<?php echo $item['name']; ?>')">Delete</button>
+                            <button class="status" onclick="handleModalStatus(<?php echo $item['id'] ?>,status=<?php echo $item['status']; ?>,confirm=false, device='<?php echo $item['title']; ?>')"><?php echo $item['status'] == 1 ? 'Disable' : 'Active' ?></button>
+                            <button class="edit" onclick="handleModalsEdit(<?php echo $item['id'] ?>, confirm=false, device='<?php echo $item['title']; ?>' )">Edit</button>
+                            <button onclick="handleDelete(<?php echo $item['id'] ?>,confirm=false, device='<?php echo $item['title']; ?>')">Delete</button>
                         </td>
                         <td><?php echo date_format(date_create($item['createdAt']), 'd M Y') ?></td>
                     </tr>
@@ -54,7 +57,6 @@ if ($query->num_rows > 0) {
     <?php
     } else {
     ?>
-
         <h2 style="display:block;text-align:center;margin:50px auto;">
             There is no data found!
         </h2>

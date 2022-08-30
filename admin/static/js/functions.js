@@ -29,20 +29,20 @@ function loading(location, action, overwrite = true) {
 function handleInfoInputs(element, title) {
   let parentNode = element.parentNode;
   let childNode = parentNode.childNodes[3];
-
-  let html = `<div class="list-pair">
-                <input type="text" class="in-title"
+  let div = document.createElement("div");
+  div.classList.add("list-pair");
+  div.innerHTML = `<input type="text" class="in-title"
                   placeholder="${title} info title here"
                 />
                 <input
                 type="text"
                   class="in-value"
                   placeholder="${title} details value here"
-                />
-              </div>`;
-  childNode.innerHTML += html;
+                />`;
+  childNode.appendChild(div);
 }
 function setMessage(text, type) {
+  console.log("called");
   let html = `<div class="message open ${type}">
                 <span class="text close" onclick="handleMessage(this)">&times;</span>
                 <span class="text">${text}</span>

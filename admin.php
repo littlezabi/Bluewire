@@ -18,7 +18,6 @@ if (count($t) > 0) printError($t);
 
 //footer sections
 if ($renderPage != 'login') {
-
     $renderBackend = BACKEND . "footer.php";
     $renderFrontend = FRONTEND . "footer.phtml";
 }

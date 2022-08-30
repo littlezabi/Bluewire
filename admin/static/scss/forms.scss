@@ -158,3 +158,110 @@
     display: none;
   }
 }
+.title-and-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  & button {
+    width: 201px;
+    height: 37px;
+    border-radius: 5px;
+    border: none;
+    background: #2196f3;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-right: 22px;
+    cursor: pointer;
+    transition: 300ms;
+  }
+  & button:hover {
+    background: #1e7ecb;
+  }
+  & button:focus {
+    box-shadow: 0 0 0px 4px #1e90ff42;
+  }
+}
+.form-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000c9;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  // display: none;
+  &.active {
+    opacity: 0;
+    animation: modal-fade-in 500ms linear 1 forwards;
+    @keyframes modal-fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  & .form-inner-modal {
+    background: #fff;
+    max-width: 600px;
+    padding: 19px 18px;
+    border-radius: 5px;
+    & .modal-title {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #000000bd;
+    }
+    & fieldset {
+      border-color: #0000002b;
+      border-width: 1px;
+      border-radius: 3px;
+      padding: 17px 11px;
+      min-width: 400px;
+    }
+    & label {
+      color: #000;
+      margin: 6px 2px;
+      display: block;
+      font-size: 14px;
+    }
+    & input,
+    & textarea {
+      display: block;
+      width: 96%;
+      border: 1px solid #00000059;
+      height: 38px;
+      padding: 0 6px;
+      border-radius: 7px;
+      &:focus {
+        box-shadow: 0 0 0px 3px #0352f433;
+        border: 1px solid #1e90ff8f;
+      }
+    }
+    & button {
+      margin-top: 10px;
+      width: 157px;
+      height: 36px;
+      background: dodgerblue;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      &:focus {
+        box-shadow: 0 0 0px 3px #1e90ff45;
+      }
+    }
+    & textarea {
+      height: 75px;
+      padding: 9px 7px;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+<script src="/admin/static/js/blueRex.js"></script>
 <script src="/admin/static/js/constants.js"></script>
 <script src="/static/js/axios.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script> -->

@@ -1,65 +1,27 @@
 <?php
 require_once FRONTEND . 'header.phtml';
 ?>
+<script>
+    data = <?php print_r(json_encode($info)); ?>;
+    latest_devices = <?php print_r($latest); ?>;
+</script>
 <main>
     <?php require_once COMPONENTS . 'middle-view.php'; ?>
 
     <div class="home-bluf page-size">
         <div class="home-left">
-            <div class="head-links">
+            <div class="head-links" id="head-links">
                 <a href="<?php echo URLFormate('/') ?>">Home</a> /
                 <a class="active" href="<?php echo URLFormate('view', $data['id']) ?>"><?php echo $data['name']; ?></a>
             </div>
-            <?php
-            $y = getItem('Extra Links');
-            if ($y[0]) {
-                foreach ($y[2] as $h) {
-            ?>
-                    <div class="closable-wrap  flex-around">
-                        <a target="_blank" href="<?php echo $h->value; ?>">
-                            <i class="fa fa-rss"></i>
-                            <?php echo $h->title; ?>
-                            <i class="fa fa-external-link"></i>
-                        </a>
-                        <button onclick="handleClose(this)">&times;</button>
-                    </div>
-            <?php }
-            } ?> 
-
+            <div id="extra-links" class="closable-wrap  flex-around">
+                <div class="loading invert"></div>
+            </div>
             <div class="reflex-head-hu">
                 <div class="items">
                     <div class="item-title-bar">
                         <span class="title"><?php echo $data['name']; ?></span>
-                        <div class="item-ckw">
-                            <div class="shareable-links">
-                                <div>
-                                    <span onclick="handleShare()">
-                                        <i class="fa fa-share-alt"></i> share
-                                    </span>
-                                    <a href="#">
-                                        <i class="fa fa-at"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fa fa-whatsapp"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-telegram"></i>
-
-                                    </a>
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php require_once COMPONENTS . 'share-buttons.php'; ?>
                     </div>
                 </div>
             </div>
@@ -72,165 +34,76 @@ require_once FRONTEND . 'header.phtml';
                     <div class="short-details">
                         <div class="item">
                             <i class="fa fa-calendar"></i>
-                            <span>
-                                <?php
-                                $k = getItem('Timeline');
-                                if ($k[0]) {
-                                    foreach ($k as $e) {
-                                        if (gettype($e) == 'array') {
-                                            foreach ($e as $b) {
-                                                echo strtolower($b->title) == 'announced' ? $b->title . ' ' . $b->value . ' / '  : '';
-                                                echo strtolower($b->title) == 'released' ? $b->title . ' ' . $b->value : '';
-                                            }
-                                            break;
-                                        }
-                                    }
-                                }
-                                ?>
+                            <span id="timeline-1">
+                                <div class="loading h20"></div>
                             </span>
                         </div>
                         <div class="item">
                             <i class="fa fa-mobile"></i>
-                            <span>
-                                <?php
-                                $k = getItem('Body');
-                                if ($k[0]) {
-                                    foreach ($k as $e) {
-
-                                        if (gettype($e) == 'array') {
-                                            foreach ($e as $b) {
-                                                echo strtolower($b->title) == 'weight' ? $b->title . ' ' . $b->value . ' / '  : '';
-                                                echo strtolower($b->title) == 'thickness' ? $b->title . ' ' . $b->value : '';
-                                            }
-                                            break;
-                                        }
-                                    }
-                                }
-                                ?>
+                            <span id="body-x">
+                                <div class="loading h10 delay1 w7"></div>
                             </span>
                         </div>
                         <div class="item">
-                            <i class="fa fa-android"></i>
-                            <span>
-                                <?php
-                                $k = getItem('Plateform');
-                                if ($k[0]) {
-                                    foreach ($k as $e) {
-                                        if (gettype($e) == 'array') {
-                                            foreach ($e as $b) {
-                                                echo strtolower($b->title) == 'os' ? $b->title . ' ' . $b->value : '';
-                                            }
-                                            break;
-                                        }
-                                    }
-                                }
-                                ?>
+                            <i class="fab fa-android"></i>
+                            <span id="plateform">
+                                <div class="loading delay2 h30"></div>
                             </span>
                         </div>
                         <div class="item">
-                            <i class="fa fa-hdd-o"></i>
-                            <span>
-                                <?php
-                                $k = getItem('Memory');
-                                if ($k[0]) {
-                                    foreach ($k as $e) {
-                                        if (gettype($e) == 'array') {
-                                            foreach ($e as $b) {
-                                                echo strtolower(trim($b->title)) == 'internal storage' || strtolower($b->title) == 'storage' ? $b->title . ' ' . $b->value . ' ' : '';
-                                                echo strtolower(trim($b->title)) == 'ram'  ? $b->title . '  ' . $b->value : '';
-                                            }
-                                            break;
-                                        }
-                                    }
-                                } ?>
+                            <i class="fas fa-hdd"></i>
+                            <span id="memory">
+                                <div class="loading delay3 h20 w4"></div>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="more-details">
-                <?php
-                $i = 0;
-                foreach ($info as $item) {
-                    if (isset($item->values[0]) && count($item->values[0]) > 0) {
-                ?>
-                        <section>
-                            <span class="title"><?php echo $item->name ?></span>
-                            <table>
-                                <?php foreach ($item->values[0] as $q) { ?>
-                                    <tr>
-                                        <th><?php echo $q->title ?></th>
-                                        <td><?php echo $q->value ?></td>
-                                    </tr>
-                                <?php } ?>
-                                </thead>
-                            </table>
-                        </section>
-                <?php
-                        $i++;
-                    }
-                }
-
-                ?>
-
-
+            <div class="more-details" id="more-details">
+                <div class="loading delay2 h50" style="margin-top: 5px"></div>
+                <div class=" loading delay5 h20 w4" style="margin-top: 5px"></div>
+                <div class=" loading delay3 h20 w2" style="margin-top: 5px"></div>
+                <div class=" loading delay4 h30" style="margin-top: 10px"></div>
+                <div class=" loading delay3 h20 w2" style="margin-top: 30px"></div>
             </div>
             <div class="closable-wrap  flex-around">
                 <span>
                     <i class="fa fa-list"></i>
-                    Samsung firmware SM-G781U / Galaxy S20 Fan Edition 5G SM-G781U <span class="tag-2">521</span>
+                    <!-- Samsung firmware SM-G781U / Galaxy S20 Fan Edition 5G SM-G781U <span class="tag-2">521</span> -->
+                    Latest Models List <span class="tag-2">521</span>
                 </span>
             </div>
-            <div class="more-like-dv">
+            <div class="more-like-dv table">
                 <table>
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>Device</th>
-                            <th>CSC</th>
-                            <th>Version</th>
-                            <th>Bit/SW Rev.? Security Patch Lvl.</th>
-                            <th>OS</th>
-                            <th>Build date</th>
+                            <script>
+                                window.innerWidth > 992 ? document.write(`<th>Description</th>`) : ''
+                            </script>
+                            <th>Device Code</th>
+                            <th>Countries</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tfoot>
                         <tr>
-                            <td>Samsung Galaxy S20 Fan Edition 5G</td>
-                            <td>DSH</td>
-                            <td>G781USQS7FVD4</td>
-                            <td>7 2022-05-01 full Files</td>
-                            <td>S(Android 12)</td>
-                            <td>20220505162120</td>
+                            <th>Image</th>
+                            <th>Device</th>
+                            <script>
+                                window.innerWidth > 992 ? document.write(`<th>Description</th>`) : ''
+                            </script>
+                            <th>Device Code</th>
+                            <th>Countries</th>
+                            <th>Date</th>
                         </tr>
-                        <tr>
-                            <td>Samsung Galaxy S20 Fan Edition 5G</td>
-                            <td>DSH</td>
-                            <td>G781USQS7FVD4</td>
-                            <td>7 2022-05-01 full Files</td>
-                            <td>S(Android 12)</td>
-                            <td>20220505162120</td>
-                        </tr>
-                        <tr>
-                            <td>Samsung Galaxy S20 Fan Edition 5G</td>
-                            <td>DSH</td>
-                            <td>G781USQS7FVD4</td>
-                            <td>7 <span class="tag-1">2022-05-01</span> <span class="tag-2">full Files</span></td>
-                            <td>S(Android 12)</td>
-                            <td>20220505162120</td>
-                        </tr>
+                    </tfoot>
+                    <tbody id="x-table-body">
                     </tbody>
                 </table>
             </div>
         </div>
-
-        <div class="home-right">
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati necessitatibus, quo dolorum ut harum ad, debitis suscipit tempora molestiae veritatis magni nobis iusto! Tenetur laudantium minus consequatur nostrum, voluptatem corrupti!
-            </div>
-            <div>
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati necessitatibus, quo dolorum ut harum ad, debitis suscipit tempora molestiae veritatis magni nobis iusto! Tenetur laudantium minus consequatur nostrum, voluptatem corrupti!
-            </div>
-        </div>
+        <?php require_once COMPONENTS . 'side-bar.php' ?>
     </div>
 </main>

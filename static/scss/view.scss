@@ -21,6 +21,7 @@
   justify-content: center;
   & img {
     padding: 0 10px;
+    max-width: 484px;
   }
   & div.right {
     margin-left: 24px;
@@ -33,7 +34,9 @@
   & .short-details {
     // display: flex;
     & .item {
-      margin-top: 5px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
       & i {
         width: 20px;
         font-size: 18px;
@@ -43,6 +46,9 @@
         font-size: 14px;
         font-weight: bold;
         color: #03071a;
+        display: inline-block;
+        width: 92%;
+        margin-left: 5px;
       }
     }
   }
@@ -53,9 +59,9 @@
   flex-wrap: wrap;
   flex-direction: row;
   & section {
-    // margin-right: 30px;
     max-width: 50%;
-    min-width: 30%;
+    min-width: 273px;
+    margin-bottom: 10px;
     & .title {
       font-weight: bold;
       padding: 15px 0;
@@ -89,5 +95,39 @@
       vertical-align: top;
       border-top: 1px solid #dee2e6;
     }
+    & a {
+      color: black;
+    }
+  }
+}
+@media (max-width: 992px) {
+  #extra-links > a {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .device-showcase {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    & .right p {
+      font-size: 14px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .device-showcase .short-details .item span {
+    font-size: 12px;
+  }
+  .more-like-div.table {
+    overflow: scroll;
+  }
+}
+@media (max-width: 630px) {
+  .more-details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .more-details section {
+    min-width: 100%;
   }
 }

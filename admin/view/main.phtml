@@ -7,6 +7,7 @@ if (!$isLogged) {
 }
 ?>
 <main>
+    <div id="heavy-modal"></div>
     <div class="admin-main page-size">
 
         <div class="message-box">
@@ -16,7 +17,6 @@ if (!$isLogged) {
                     <span class="text close" onclick="handleMessage(this)">&times;</span>
                     <span class="text"><?php echo $_SESSION['message']['text']; ?></span>
                 </div>
-
             <?php
                 unset($_SESSION['message']);
             }
@@ -67,11 +67,11 @@ if (!$isLogged) {
                     </span>
                     <i class="fa fa-caret-right"></i>
                 </li>
-                <li onclick="handlePage('contacts',this)">
+                <li onclick="handlePage('modals-list',this)">
                     <div></div>
                     <div></div>
                     <span>
-                        <i class="fa fa-users"></i>contact
+                        <i class="fa fa-feather"></i>Modals
                     </span>
                     <i class="fa fa-caret-right"></i>
                 </li>

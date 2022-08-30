@@ -1,0 +1,120 @@
+.loading {
+  width: 100%;
+  border-radius: 26px;
+  background: #efefff;
+  overflow: hidden;
+  &::before {
+    content: " ";
+    width: 59%;
+    height: 36px;
+    border-top: 1px solid #2e2d2d1c;
+    background: linear-gradient(
+      90deg,
+      #fff0,
+      #ffffff0a,
+      #00000014,
+      #0000000f,
+      #fff0
+    );
+    display: block;
+    border-radius: 10px;
+    animation: load-anim 2000ms ease-in-out forwards infinite;
+    @keyframes load-anim {
+      0% {
+        transform: translate(-100%, 0);
+      }
+      100% {
+        transform: translate(200%, 0);
+      }
+    }
+  }
+  &.invert {
+    background: #101033 !important;
+    &:before {
+      background: linear-gradient(
+        90deg,
+        #0000,
+        #ffffff0a,
+        #ffffff14,
+        #ffffff1f,
+        #0000
+      ) !important;
+    }
+  }
+  &.h50 {
+    &:before {
+      height: 50px !important;
+    }
+  }
+  &.h30 {
+    &:before {
+      height: 30px !important;
+    }
+  }
+  &.h80 {
+    &:before {
+      height: 80px !important;
+    }
+  }
+  &.h280 {
+    &:before {
+      height: 280px !important;
+    }
+  }
+  &.h20 {
+    &:before {
+      height: 20px !important;
+    }
+  }
+  &.h10 {
+    &:before {
+      height: 10px !important;
+    }
+  }
+  &.delay1 {
+    &::before {
+      animation-delay: 100ms;
+    }
+  }
+  &.delay2 {
+    &::before {
+      animation-delay: 200ms;
+    }
+  }
+  &.delay3 {
+    &::before {
+      animation-delay: 300ms;
+    }
+  }
+  &.delay4 {
+    &::before {
+      animation-delay: 400ms;
+    }
+  }
+  &.delay5 {
+    &::before {
+      animation-delay: 500ms;
+    }
+  }
+  &.w2 {
+    width: 20%;
+  }
+  &.w3 {
+    width: 30%;
+  }
+  &.w4 {
+    width: 40%;
+  }
+  &.w5 {
+    width: 50%;
+  }
+  &.w6 {
+    width: 60%;
+  }
+  &.w8 {
+    width: 80%;
+  }
+  &.w7 {
+    width: 70%;
+  }
+}

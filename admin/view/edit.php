@@ -15,7 +15,6 @@ if (isset($_GET['edit'])) {
         exit();
     }
     if (count($data) > 0) {
-
         $deviceData = json_decode($data[0]['device_data']);
         $name  = $data[0]['name'];
         $desc  = $data[0]['description'];
@@ -122,6 +121,6 @@ if (isset($_GET['edit'])) {
 <?php
 
 } else {
-    echo '<h2 style="color: #f60054;margin: 50px 0;">There is no device selected!</h2>';
+    echo '<h2 class="empty">There is no device selected!</h2>';
 }
 ?>

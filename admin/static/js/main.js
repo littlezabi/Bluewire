@@ -107,6 +107,39 @@ const handleDelete = (id, confirm = false, device = "") => {
       (modelname = "Confirm Delete")
     );
 };
+const handleModalStatus = (id, status = 1, confirm = false, device = "") => {
+  if (confirm) {
+    axios
+      .get(
+        `${BACKEND_MODULES}executer.php?modal-status=1&id=${id}&current=${status}`
+      )
+      .then((e) => {
+        if (e.data.trim() == "success") {
+          setMessage(
+            `${status ? "Disabled" : "Enabled"} Successfully.`,
+            "success"
+          );
+          reloadPage();
+        }
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+    handleCloseAlertModel();
+  } else
+    createAlert(
+      (text = `You want to change status of the device! <br/> ${device}`),
+      (buttons = [
+        {
+          name: "Yes",
+          classes: "accent",
+          function: `handleModalStatus(${id}, status=${status}, confirm=${true})`,
+        },
+      ]),
+      (cancelButton = true),
+      (modelname = "Confirm Delete")
+    );
+};
 const handleStatus = (id, status = 1, confirm = false, device = "") => {
   if (confirm) {
     axios
@@ -160,3 +193,116 @@ const handleEdit = (id, confirm = false, device = "") => {
       (modelname = "Confirm Delete")
     );
 };
+function addNewModal(e) {
+  let title = document.getElementById("modal-title");
+  let body = document.getElementById("new-modal-body");
+  console.log(title.value, body.value);
+  var params = new URLSearchParams();
+  params.append("param1", "value1");
+  params.append("param2", "value2");
+  // axios.post("/foo", params);
+  blueRex
+    .post(`${BACKEND_MODULES}executer.php`, {
+      title: title.value,
+      body: body.value,
+      newModal: 1,
+    })
+    .then((res) => {
+      console.log("res: ", res);
+    })
+    .catch((e) => console.log(e));
+}
+
+const newModal = () => {
+  createModal({
+    title: "Add new modal",
+    legend: "Enter title and body",
+    inputs: [
+      {
+        name: "title",
+        type: "text",
+        id: "modal-title",
+        label: "Enter Modal Title",
+        placeholder: "Enter title here...",
+      },
+      {
+        name: "body",
+        type: "textarea",
+        id: "new-modal-body",
+        label:
+          "Enter Modal full text here <small>(You can use HTML tags to format your content).</small>",
+        placeholder: "Enter body here...",
+      },
+    ],
+    buttons: [
+      {
+        name: "save-modal",
+        value: "Save Modal",
+        type: "submit",
+        id: "save",
+        callback: "addNewModal",
+        eventListener: "onclick",
+      },
+    ],
+  });
+};
+function createModal(idol) {
+  const main = document.querySelector("#heavy-modal");
+  let inputs = "";
+  idol.inputs
+    ? idol.inputs.map((e) => {
+        let c = `<label for="${e.name}">${
+          e.label ? e.label : "Enter " + e.name
+        }</label>`;
+        if (e.type == "textarea") {
+          c += `<textarea id="${e.id ? e.id : e.name}" ${
+            e.value ? e.value : ""
+          } placeholder="Enter modal body..."></textarea>`;
+        } else if (e.type == "submit") {
+          c += `<input type='submit' ${e.value ? e.value : ""} name='${
+            e.name
+          }' id='${e.id ? e.id : e.name}' ${
+            e.callback ? `${e.eventListener} = "${e.callback}(this)"` : ""
+          } />`;
+        } else {
+          c += `<input value="${e.value ? e.value : ""}" type="${
+            e.type ? e.type : "text"
+          }" id="${e.id ? e.id : e.name}" placeholder="${
+            e.placeholder ? e.placeholder : "Enter here..."
+          }" />`;
+        }
+        inputs += c;
+      })
+    : "";
+  let buttons = "";
+  idol.buttons
+    ? idol.buttons.map((e) => {
+        buttons += `<button name='${e.name ? e.name : e.value}' id='${
+          e.id ? e.id : e.name
+        }' ${e.callback ? `${e.eventListener} = "${e.callback}(this)"` : ""} >${
+          e.value
+        }</button>`;
+      })
+    : "";
+  const k = `
+      <div class="form-modal active">
+      <div class="form-inner-modal">
+          <span class="modal-title">${
+            idol.title ? idol.title : "Form Modal"
+          }</span>
+          <fieldset>
+              <legend>${
+                idol.legend ? idol.legend : "Fill all the fields"
+              }</legend>
+              <div id="inputs">
+                ${inputs}
+              </div>
+              <div id="button">
+              ${buttons}
+              </div>
+          </fieldset>
+      </div>
+    </div>
+  `;
+  main.innerHTML = k;
+}

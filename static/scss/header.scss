@@ -1,67 +1,65 @@
-header{
-    z-index: 1;
-    & nav{
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 25px 5px 25px;
-        margin: 5px;
-    }
-    & .ul-xcwe .logo{
-        font-family: $font-secondary;
-        font-size: 30px;
+header {
+  z-index: 1;
+  & nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 25px 5px 25px;
+    margin: 5px;
+  }
+  & .ul-xcwe .logo {
+    font-family: $font-secondary;
+    font-size: 30px;
+    color: var(--reflex-link);
+  }
+  & .ul-iewlc {
+    display: flex;
+    align-items: center;
+    & li {
+      margin-right: 32px;
+      text-transform: uppercase;
+      & a {
         color: var(--reflex-link);
+      }
     }
-    & .ul-iewlc{
-        display: flex;
-        align-items: center;
-        & li{
-            margin-right: 32px;
-            text-transform: uppercase;
-            & a{color: var(--reflex-link);}
-        }
-    }
+  }
 }
-@media(max-width: 992px){
-    header nav{
-        padding-top: 11px;
-        
-    }
+@media (max-width: 992px) {
+  header nav {
+    padding-top: 11px;
+  }
 }
-@media(max-width: 600px){
-    header nav{
-        padding-top: 7px;
-
-    }
-    header .ul-iewlc li a{
-        font-size: 14px;
-    }
-    header .ul-xcwe .logo{
-        font-size: 26px;
-    }
+@media (max-width: 600px) {
+  header nav {
+    padding-top: 7px;
+  }
+  header .ul-iewlc li a {
+    font-size: 14px;
+  }
+  header .ul-xcwe .logo {
+    font-size: 22px;
+  }
 }
-@media(max-width: 600px){
-    header nav{
-        padding: 8px;
-    }
-    header .ul-iewlc li{
-        margin-left: 27px;
-        margin-right: 5px;
-    }
+@media (max-width: 600px) {
+  header nav {
+    padding: 8px;
+  }
+  header .ul-iewlc li {
+    margin-left: 27px;
+    margin-right: 5px;
+  }
 }
-@media(max-width: 600px){
-
-    header .ul-iewlc li{
-        margin-left: 17px;
-        margin-right: 5px;
-    }
+@media (max-width: 600px) {
+  header .ul-iewlc li {
+    margin-left: 17px;
+    margin-right: 5px;
+  }
 }
-@media(max-width: 480px){
-
-    header .ul-iewlc li{
-        margin-left: 10px;
-        margin-right: 5px;
-    }
-    header .ul-iewlc li a{
-        font-size: 12px;
-    }
+@media (max-width: 480px) {
+  header .ul-iewlc li {
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  header .ul-iewlc li a {
+    font-size: 12px;
+  }
 }
