@@ -1,5 +1,6 @@
 <?php
-// require_once FRONTEND . 'header.phtml';
+require_once BACKEND . 'head.php';
+require_once FRONTEND . 'header.phtml';
 
 if (!$isLogged) {
     echo '<script>window.location.href = "/admin.php?view=login"</script>';
@@ -34,48 +35,64 @@ if (!$isLogged) {
                 </span>
 
             </div>
-            <ul class="left-ul">
-                <li onclick="handlePage('dashboard',this)">
+            <div class="left-ul">
+                <a class="dashboard" href='/admin.php?page=dashboard'>
                     <div></div>
                     <div></div>
                     <span>
                         <i class="fa fa-dashboard"></i>Dashboard
                     </span>
                     <i class="fa fa-caret-right"></i>
-                </li>
-                <li onclick="handlePage('list', this)">
+                </a>
+                <a id="edit-li" class="device-list" href='/admin.php?page=device-list'>
                     <div></div>
                     <div></div>
                     <span>
                         <i class="fa fa-mobile"></i>Devices List
                     </span>
                     <i class="fa fa-caret-right"></i>
-                </li>
-                <li onclick="handlePage('add-new',this)">
+                </a>
+                <a href='/admin.php?page=add-device' class="add-device">
                     <div></div>
                     <div></div>
                     <span>
                         <i class="fa fa-plus"></i>Add Devices
                     </span>
                     <i class="fa fa-caret-right"></i>
-                </li>
-                <li id="edit-li" onclick="handlePage('edit',this)">
+                </a>
+                <a href='/admin.php?page=firmware-list' class="firmware-list">
+                    <div></div>
+                    <div></div>
+                    <span>
+                        <i class="fa fa-cogs"></i>Firmware List
+                    </span>
+                    <i class="fa fa-caret-right"></i>
+                </a>
+                <a href='/admin.php?page=add-firmware' class="add-firmware">
+                    <div></div>
+                    <div></div>
+                    <span>
+                        <i class="fa fa-cog"></i>Add Firmware
+                    </span>
+                    <i class="fa fa-caret-right"></i>
+                </a>
+                <a href='/admin.php?page=edit-device' class="edit-device">
                     <div></div>
                     <div></div>
                     <span>
                         <i class="fa fa-edit"></i>Edit Devices
                     </span>
                     <i class="fa fa-caret-right"></i>
-                </li>
-                <li onclick="handlePage('modals-list',this)">
+                </a>
+                <a href='/admin.php?page=modals' class="modals">
                     <div></div>
                     <div></div>
                     <span>
                         <i class="fa fa-feather"></i>Modals
                     </span>
                     <i class="fa fa-caret-right"></i>
-                </li>
-            </ul>
+                </a>
+            </div>
         </div>
         <div class="xyz-right">
             <div class="admin-top-view">
@@ -83,7 +100,4 @@ if (!$isLogged) {
                 <input type="search" placeholder="Enter to search">
                 <span>LittleZabi</span>
             </div>
-            <div id="render-view"></div>
-        </div>
-    </div>
-</main>
+            <div id="render-view">

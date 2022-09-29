@@ -21,52 +21,146 @@ require_once FRONTEND . 'header.phtml';
                 </div>
             </div>
             <div>
-                <div class="search-input">
-                    <i class="fa fa-mobile"></i>
-                    <div id="search-wrap" class="home">
-                        <input type="text" id="search-input" placeholder="Search a model..." class="search-input">
-                        <div class="srch-results">
-                        </div>
+                <div class="card-body">
+                    <div class="table-responsive-xl">
+                    <table class="kakxmsdkl table table-hover w-100 d-block d-md-table small">
+                        <thead>
+                            <tr>
+                                <th scope="col">Samsung Device</th>
+                                <th scope="col">CSC</th>
+                                <th scope="col">Version</th>
+                                <th scope="col">Bit/SW REV. 
+                                    Security Patch Lvl.</th>
+                                <th scope="col">OS</th>
+                                <th scope="col">Build date</th>
+                                <th scope="col">Updated</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        
+                        <tfoot>
+                            <tr>
+                                <th>Samsung Device</th>
+                                <th>CSC</th>
+                                <th>Version</th>
+                                <th>Bit/SW REV. 
+                                    Security Patch Lvl.</th>
+                                <th>OS</th>
+                                <th>Build date</th>
+                                <th>Updated</th>
+                                <th>Status</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr  class="text-dark bg-light">
+                                <td style="min-width: 180px">
+                                    <a href="https://samfw.com/firmware/SM-G780F" title="SM-G780F / Galaxy S20 Fan Edition">
+                                        SM-G780F
+                                    </a>
+                                    <span class="badge badge-light badge-pill pull-right float-right ml-1" style="cursor: pointer;" title="Notification when new update" data-toggle="modal" data-target="#noticeUpdate" id="noticeUpdatebutton" data-modelname="" data-modelcode="SM-G780F" data-modelregion="XXV"><i class="fas fa-bell"></i></span>
+                                </td>
+                                <td>
+                                    <a href="https://samfw.com/firmware/SM-G780F/XXV">
+                                        <span class="flag flag-vn flag-small "></span> XXV
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" title="Download Samsung Firmware/ROM for SM-G780F (XXV) version G780FXXUADVI1">G780FXXUADVI1</a>
+                                </td>
+                                <td class="text-success font-weight-bold">
+                                    1
+                                    <span class="badge badge-pill badge-dark">Full Files</span> 
+                                </td>
+                                <td>
+                                    S(Android 12)
+                                </td>
+                                <td>
+                                    20220919210711
+                                </td>
+                                <td>
+                                    2022-09-26 22:45:54
+                                </td>
+                                <td>
+                                    <span class="text-success"><i class="faa-float animated far fa-arrow-alt-circle-up"></i> Uploading</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     </div>
                 </div>
-                <div class="items-list">
-                    <?php
-                    while ($items = $query->fetch_all(MYSQLI_ASSOC)) {
+            </div>
+            <div class="reflex-item">
+                <div class="items">
+                    <div class="item-title-bar">
+                        <i class="fas fa-file-archive"></i>
+                        <span class="title"> New combinations</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card-body">
+                    <div class="table-responsive-xl">
+                    <table class="kakxmsdkl table table-hover w-100 d-block d-md-table small">
+                        <thead>
+                            <tr>
+                                <th>Device</th>
+                                <th>Version</th>
+                                <th>Bit/SW REV.</th>
+                                <th>FA</th>
+                                <th>Change list</th>
+                                <th>Update</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        
+                        <tfoot>
+                            <tr>
+                                <th>Device</th>
+                                <th>Version</th>
+                                <th>Bit/SW REV.</th>
+                                <th>FA</th>
+                                <th>Change list</th>
+                                <th>Update</th>
+                                <th>Status</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr  class="text-dark bg-light">
+                                <td style="min-width: 180px">
+                                    <a href="/comination/SM-G780F" title="SM-G780F / Galaxy S20 Fan Edition">
+                                        SM-G9287C / Galaxy S6 edge
+                                    </a>
+                                    <span class="badge badge-light badge-pill pull-right float-right ml-1" style="cursor: pointer;" title="Notification when new update" data-toggle="modal" data-target="#noticeUpdate" id="noticeUpdatebutton" data-modelname="" data-modelcode="SM-G780F" data-modelregion="XXV"><i class="fas fa-bell"></i></span>
+                                </td>
+                                <td>
+                                    <a href="/comination/SM-G780F/XXV">
+                                        G9287CDXU2AOJ1
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" title="Download Samsung Firmware/ROM for SM-G780F (XXV) version G780FXXUADVI1">G780FXXUADVI1</a>
+                                </td>
+                                <td class="text-success font-weight-bold">
+                                    1
+                                </td>
+                                <td>
+                                    FA
+                                </td>
+                                <td>
+                                    CL5994902
+                                </td>
+                                <td>
+                                    2022-09-26 22:45:54
+                                </td>
+                                <td>
+                                    <span class="text-success"><i class="faa-pulse animated far fa-check-circle"></i>  Ready</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        foreach ($items as $item) {
-                            $name = $item['name'];
-                            $image = $item['image'];
-                            $id = $item['id'];
-                            $deviceCode = $item['deviceCode'];
-                            $cntry = $item['countries'];
-                    ?>
-
-                            <a href="/?page=view&id=<?php echo $id; ?>">
-                                <div class="item-cell">
-                                    <img src="<?php echo $image == '' ? "https://mifirm.net/assets/img/model/xiaomi-redmi-note-11-pro-global.jpg" : $image; ?>" alt="...">
-                                    <br>
-                                    <h5><?php echo $name; ?></h5>
-
-                                    <?php echo $deviceCode != '' ? '<span class="modal-code">(' . $deviceCode . ')</span>' : '' ?>
-                                    <div class="type">
-                                        <?php
-                                        $countries = explode(',', $cntry);
-                                        foreach ($countries as $c) {
-                                            if ($c != '') {
-                                                $t = rand(0, $colorsLen);
-                                        ?>
-                                                <span style="background: <?php echo $colors[$t]; ?>" class="title"><?php echo $c; ?></span>
-                                        <?php }
-                                        } ?>
-                                    </div>
-                                </div>
-                            </a>
-                    <?php
-                        }
-                    }
-
-                    ?>
-
+                    </div>
                 </div>
             </div>
         </div>

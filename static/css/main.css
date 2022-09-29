@@ -107,6 +107,25 @@ select {
   align-items: center;
 }
 
+.kakxmsdkl tbody > tr {
+  transition: 200ms;
+}
+.kakxmsdkl tbody > tr:hover {
+  background: rgba(233, 30, 99, 0.1882352941) !important;
+}
+.kakxmsdkl tbody > tr a:hover {
+  text-decoration: none;
+}
+
+.item-title-bar {
+  font-size: 14px;
+}
+.item-title-bar i {
+  color: white;
+  font-size: 14px;
+  margin: 0 5px;
+}
+
 .mid-xzewx {
   background: var(--mid-xzewx-bg);
   color: var(--reflex-color);
@@ -695,6 +714,11 @@ header .ul-iewlc li a {
   font-size: 20px;
   margin: 0 11px;
   color: #673ab7;
+}
+
+.uekxlxcbcx {
+  max-height: 60vh;
+  overflow-y: scroll;
 }
 
 footer {

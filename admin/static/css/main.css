@@ -85,6 +85,13 @@ select {
 .flex {
   display: flex;
 }
+.flex > span {
+  display: block;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
 
 .flex-around {
   display: flex;
@@ -283,6 +290,45 @@ select {
 }
 .view-alert .inner-alert button:hover {
   filter: brightness(120%);
+}
+
+.close-modal {
+  border-radius: 50%;
+  color: rgb(62, 62, 62);
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.dashboard section {
+  border-radius: 121px;
+  margin-top: 10px;
+  background: linear-gradient(145deg, rgba(230, 230, 230, 0.6705882353), #fff);
+  box-shadow: 5px 0px 20px 1px #e6e6e6, -16px -16px 32px #ffffff;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.dashboard section span {
+  font-weight: bold;
+  color: rgba(5, 5, 6, 0.664);
+}
+.dashboard section .text {
+  font-size: 45px;
+  color: #03a9f4;
+}
+.dashboard section i {
+  color: rgba(5, 5, 6, 0.664);
+  font-size: 20px;
 }
 
 .mid-xzewx {
@@ -653,9 +699,12 @@ select {
   padding: 5px;
   color: var(--common-reflex);
 }
+.admin-main .xyz-left a, .admin-main .xyz-right a {
+  text-decoration: none !important;
+}
 .admin-main .xyz-left {
   width: 238px;
-  background: #f60054;
+  background: #537f95;
   padding: 21px 0px 21px 22px;
 }
 .admin-main .xyz-left .flex {
@@ -676,7 +725,7 @@ select {
   font-size: 14px;
   letter-spacing: 1px;
 }
-.admin-main .xyz-left .left-ul li {
+.admin-main .xyz-left .left-ul a {
   cursor: pointer;
   align-items: center;
   padding: 14px;
@@ -689,19 +738,22 @@ select {
   z-index: 1;
   transition: color 300ms ease-in-out;
 }
-.admin-main .xyz-left .left-ul li span i {
+.admin-main .xyz-left .left-ul a:hover {
+  color: rgba(255, 255, 255, 0.748);
+}
+.admin-main .xyz-left .left-ul a span i {
   padding-right: 11px;
 }
-.admin-main .xyz-left .left-ul li > div {
+.admin-main .xyz-left .left-ul a > div {
   display: none;
 }
-.admin-main .xyz-left .left-ul li.active {
+.admin-main .xyz-left .left-ul a.active {
   background: white;
   font-weight: bold;
-  color: #e91e63;
+  color: #537f95;
   border-radius: 27px 0 0 25px;
 }
-.admin-main .xyz-left .left-ul li.active > div {
+.admin-main .xyz-left .left-ul a.active > div {
   display: block;
   position: absolute;
   top: -17px;
@@ -710,9 +762,9 @@ select {
   width: 100%;
   height: 17px;
 }
-.admin-main .xyz-left .left-ul li.active > div::before {
+.admin-main .xyz-left .left-ul a.active > div::before {
   content: " ";
-  background: #f60054;
+  background: #537f95;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -720,19 +772,20 @@ select {
   left: 0;
   border-bottom-right-radius: 26px;
 }
-.admin-main .xyz-left .left-ul li.active > div:nth-child(2) {
+.admin-main .xyz-left .left-ul a.active > div:nth-child(2) {
   background: #fff;
-  top: 45px;
+  top: 49px;
 }
-.admin-main .xyz-left .left-ul li.active > div:nth-child(2)::before {
+.admin-main .xyz-left .left-ul a.active > div:nth-child(2)::before {
   content: " ";
-  background: #f60054;
+  background: #537f95;
   border-bottom-right-radius: 0px;
   border-top-right-radius: 26px;
 }
 .admin-main .xyz-right {
   width: 75%;
   margin-left: 22px;
+  overflow: scroll;
 }
 
 .admin-top-view {
@@ -774,12 +827,6 @@ select {
   width: 100%;
   margin: 10px 0;
 }
-.list-view table td {
-  max-width: 300px;
-  padding: 12px 5px;
-  border-bottom: 1px solid rgba(233, 30, 99, 0.1882352941);
-  font-size: 14px;
-}
 .list-view table tr {
   padding: 5px;
 }
@@ -795,6 +842,7 @@ select {
   font-family: "Rubik", sans-serif;
   border-radius: 3px;
   cursor: pointer;
+  margin: 2px 0;
 }
 .list-view table button.edit {
   background: #673ab7;
@@ -819,6 +867,7 @@ header nav {
 header .logo {
   font-family: "Bebas Neue", "Rubik", cursive;
   font-size: 28px;
+  color: white;
 }
 
 footer {

@@ -3,7 +3,12 @@ $HOST = 'localhost';
 $USER = 'root';
 $DB = 'bluewire';
 $PASSWORD = '';
-
+if ($_SERVER['REMOTE_ADDR'] == '::1') {
+    $HOST = 'localhost';
+    $USER = 'root';
+    $DB = 'bluewire';
+    $PASSWORD = '';
+}
 $con = mysqli_connect($HOST, $USER, $PASSWORD, $DB);
 session_start();
 if ($con->connect_errno) {

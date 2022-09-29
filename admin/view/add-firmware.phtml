@@ -1,0 +1,81 @@
+<?php
+echo '<pre>';
+print_r($_GET);
+echo '</pre>';
+if (isset($_GET['file'])) {
+    $device_name = $_GET['name'];
+    $did = $_GET['file'];
+} else {
+    echo '<h2 class="empty">Select a device to add a firmware!</h2>';
+    exit('');
+}
+
+?>
+<div class="p-5">
+    <form>
+        <div class="form-row">
+            <input type="hidden" id="device-id" value="<?php echo $did; ?>">
+            <input type="hidden" id="device-name" value="<?php echo $device_name; ?>">
+            <div class="form-group col-md-6">
+                <label for="show-name">Device</label>
+                <input id='show-name' value="<?php echo $device_name; ?>" disabled type="text" class="form-control" placeholder="Eg: Samsung Galaxy A52 5G">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="version">Version</label>
+                <input type="text" class="form-control" id="version" placeholder="Eg: A526USQU1AUC9">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="csc">CSC</label>
+                <input type="text" class="form-control" id="csc">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="country">Country</label>
+                <select onchange="setFlag(this)" id="country" class="form-control">
+                    <option>Select country</option>
+                    <?php require_once COMPONENTS . 'countries-list.php'; ?>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip"></label>
+                <div class="mt-2 pt-1 ml-3">
+                    <span id="flags" class=""></span>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="os">OS</label>
+                <input type="text" class="form-control" id="os">
+            </div>
+        </div>
+        <label for="inputZip">Bit/SW REV.
+            Security Patch Lvl.</label>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="level">Level</label>
+                <input type="text" class="form-control" id="level" placeholder="Eg: 1 or 2">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="BS-date">Date</label>
+                <input type="date" class="form-control" id="BS-date" placeholder="Eg: 2021-03-01">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="file-status">File status</label>
+                <input type="text" class="form-control " id="file-status" placeholder="Eg: Full Files">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="build-date">Build Date</label>
+                <input type="date" class="form-control" id="build-date" placeholder="Full Files">
+            </div>
+        </div>
+        <div class="form-row mb-5">
+            <label for="dwn-file-link">Downloadable File link</label>
+            <input type="text" class="form-control" id="dwn-file-link" placeholder="eg: https://file-downloadable-link.com.zip">
+        </div>
+        <button type="button" onclick="submitFirmware(this)" class="btn btn-primary">Add firmware</button>
+        <button type="reset" class="btn btn-danger">Clear all</button>
+        <br>
+    </form>
+</div>

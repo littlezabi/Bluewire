@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="https://feeds.buzzsprout.com/styles.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <atom:link href="https://feeds.buzzsprout.com/115044.rss" rel="self" type="application/rss+xml" />
+  <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" xmlns="http://www.w3.org/2005/Atom" />
+  <title>CREUniversity Audio Files</title>
+  <lastBuildDate>Thu, 22 Sep 2022 18:25:34 -0400</lastBuildDate>
+  <link>http://creuniversity.com</link>
+  <language>en-us</language>
+  <copyright>© 2022 CREUniversity</copyright>
+  <podcast:locked owner="brandon@creuniversity.com">yes</podcast:locked>
+  <podcast:guid>d7d9c2a4-fdfc-51d4-abf6-209dc6fd4484</podcast:guid>
+  <itunes:author>Brandon Reynolds</itunes:author>
+  <itunes:type>episodic</itunes:type>
+  <itunes:explicit>false</itunes:explicit>
+  <description><![CDATA[Audios from the CREUniversity.com network of real estate education sites.]]></description>
+  <itunes:owner>
+    <itunes:name>Brandon Reynolds</itunes:name>
+    <itunes:email>brandon@creuniversity.com</itunes:email>
+  </itunes:owner>
+  <itunes:category text="Business">
+    <itunes:category text="Investing" />
+  </itunes:category>
+<item>
+    <itunes:title>Frank &amp; Dave Show - November 11th, 2009</itunes:title>
+    <title>Frank &amp; Dave Show - November 11th, 2009</title>
+    <description><![CDATA[Frank &amp; Dave Show - November 11th, 2009]]></description>
+    <content:encoded><![CDATA[Frank &amp; Dave Show - November 11th, 2009]]></content:encoded>
+    <itunes:author>Brandon Reynolds</itunes:author>
+    <enclosure url="https://www.buzzsprout.com/115044/543167-frank-dave-show-november-11th-2009.mp3" length="57272448" type="audio/mpeg" />
+    <guid isPermaLink="false">Buzzsprout-543167</guid>
+    <pubDate>Tue, 10 Nov 2009 23:00:00 -0600</pubDate>
+    <itunes:duration>3579</itunes:duration>
+    <itunes:keywords>Frank &amp; Dave Show</itunes:keywords>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <itunes:title>Frank &amp; Dave Show - November 4th, 2009</itunes:title>
+    <title>Frank &amp; Dave Show - November 4th, 2009</title>
+    <description><![CDATA[Frank &amp; Dave Show - November 4th, 2009]]></description>
+    <content:encoded><![CDATA[Frank &amp; Dave Show - November 4th, 2009]]></content:encoded>
+    <itunes:author>Brandon Reynolds</itunes:author>
+    <enclosure url="https://www.buzzsprout.com/115044/543165-frank-dave-show-november-4th-2009.mp3" length="57272448" type="audio/mpeg" />
+    <guid isPermaLink="false">Buzzsprout-543165</guid>
+    <pubDate>Tue, 03 Nov 2009 23:00:00 -0600</pubDate>
+    <itunes:duration>3579</itunes:duration>
+    <itunes:keywords>Frank &amp; Dave Show</itunes:keywords>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <itunes:title>Frank &amp; Dave Show - October 28th, 2009</itunes:title>
+    <title>Frank &amp; Dave Show - October 28th, 2009</title>
+    <description><![CDATA[Frank &amp; Dave Show - October 28th, 2009]]></description>
+    <content:encoded><![CDATA[Frank &amp; Dave Show - October 28th, 2009]]></content:encoded>
+    <itunes:author>Brandon Reynolds</itunes:author>
+    <enclosure url="https://www.buzzsprout.com/115044/543162-frank-dave-show-october-28th-2009.mp3" length="57868416" type="audio/mpeg" />
+    <guid isPermaLink="false">Buzzsprout-543162</guid>
+    <pubDate>Tue, 27 Oct 2009 23:00:00 -0500</pubDate>
+    <itunes:duration>3616</itunes:duration>
+    <itunes:keywords>Frank &amp; Dave Show</itunes:keywords>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <itunes:title>cat &amp; Dave Show - October 21st, 2009</itunes:title>
+    <title>Frank &amp; Dave Show - October 21st, 2009</title>
+    <description><![CDATA[Frank &amp; Dave Show - October 21st, 2009]]></description>
+    <content:encoded><![CDATA[Frank &amp; Dave Show - October 21st, 2009]]></content:encoded>
+    <itunes:author>Brandon Reynolds</itunes:author>
+    <enclosure url="https://www.buzzsprout.com/115044/543159-frank-dave-show-october-21st-2009.mp3" length="62826624" type="audio/mpeg" />
+    <guid isPermaLink="false">Buzzsprout-543159</guid>
+    <pubDate>Tue, 20 Oct 2009 23:00:00 -0500</pubDate>
+    <itunes:duration>3926</itunes:duration>
+    <itunes:keywords>Frank &amp; Dave Show</itunes:keywords>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <itunes:title>moose &amp; Dave Show - October 14th, 2009</itunes:title>
+    <title>Frank &amp; Dave Show - October 14th, 2009</title>
+    <description><![CDATA[Frank &amp; Dave Show - October 14th, 2009]]></description>
+    <content:encoded><![CDATA[Frank &amp; Dave Show - October 14th, 2009]]></content:encoded>
+    <itunes:author>Brandon Reynolds</itunes:author>
+    <enclosure url="https://www.buzzsprout.com/115044/543156-frank-dave-show-october-14th-2009.mp3" length="63869056" type="audio/mpeg" />
+    <guid isPermaLink="false">Buzzsprout-543156</guid>
+    <pubDate>Tue, 13 Oct 2009 23:00:00 -0500</pubDate>
+    <itunes:duration>3991</itunes:duration>
+    <itunes:keywords>Frank &amp; Dave Show</itunes:keywords>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <itunes:title>Frank &amp; Dave Show - October 7th, 2009</itunes:title>
+    <title>Frank &amp; Dave Show - October 7th, 2009</title>
+    <description><![CDATA[Frank &amp; Dave Show - October 7th, 2009]]></description>
+    <content:encoded><![CDATA[Frank &amp; Dave Show - October 7th, 2009]]></content:encoded>
+    <itunes:author>Brandon Reynolds</itunes:author>
+    <enclosure url="https://www.buzzsprout.com/115044/543154-frank-dave-show-october-7th-2009.mp3" length="56385664" type="audio/mpeg" />
+    <guid isPermaLink="false">Buzzsprout-543154</guid>
+    <pubDate>Tue, 06 Oct 2009 23:00:00 -0500</pubDate>
+    <itunes:duration>3523</itunes:duration>
+    <itunes:keywords>Frank &amp; Dave Show</itunes:keywords>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <itunes:title>love &amp; Dave Show -September 30th, 2009</itunes:title>
+    <title>Frank &amp; Dave Show -September 30th, 2009</title>
+    <description><![CDATA[Frank &amp; Dave Show -September 30th, 2009]]></description>
+    <content:encoded><![CDATA[Frank &amp; Dave Show -September 30th, 2009]]></content:encoded>
+    <itunes:author>Brandon Reynolds</itunes:author>
+    <enclosure url="https://www.buzzsprout.com/115044/543152-frank-dave-show-september-30th-2009.mp3" length="52695168" type="audio/mpeg" />
+    <guid isPermaLink="false">Buzzsprout-543152</guid>
+    <pubDate>Tue, 29 Sep 2009 23:00:00 -0500</pubDate>
+    <itunes:duration>3293</itunes:duration>
+    <itunes:keywords>Frank &amp; Dave Show</itunes:keywords>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  </channel>
+</rss>

@@ -25,21 +25,17 @@ class Render {
       this.setElement("memory", "Memory", memory);
       this.renderAll("more-details");
     }
-    if (this.modals.length > 0) {
-      this.renderModals("home-right-modals");
-    }
-    if (this.latest_devices.length > 0) {
-      this.renderLatestDevices("x-table-body");
-    }
+    this.renderModals("home-right-modals");
+    this.renderLatestDevices("x-table-body");
   }
   renderLatestDevices(id) {
     try {
       let o = document.getElementById(id);
-      console.log(o);
       o.innerHTML = "";
-      this.latest_devices.map((e) => {
-        o.innerHTML += tableElement(e);
-      });
+      this.latest_devices.length > 0 &&
+        this.latest_devices.map((e) => {
+          o.innerHTML += tableElement(e);
+        });
     } catch (error) {
       this.logError(error.message, "renderLatestDevices function ");
     }
@@ -51,7 +47,8 @@ class Render {
     try {
       let q = document.getElementById(id);
       q.innerHTML = "";
-      this.modals.map((modal) => (q.innerHTML += xmodal(modal)));
+      this.modals.length > 0 &&
+        this.modals.map((modal) => (q.innerHTML += xmodal(modal)));
     } catch (error) {
       this.logError(error.message, "renderModals function");
     }

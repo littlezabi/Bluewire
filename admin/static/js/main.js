@@ -177,7 +177,7 @@ const handleEdit = (id, confirm = false, device = "") => {
     element = document.querySelector("#edit-li");
   } catch {}
   if (confirm) {
-    handlePage((page = "edit"), (self = element), (params = { id, edit: 1 }));
+    window.location.href = "/admin.php?page=edit-device&xr=" + id;
     handleCloseAlertModel();
   } else
     createAlert(
@@ -193,15 +193,14 @@ const handleEdit = (id, confirm = false, device = "") => {
       (modelname = "Confirm Delete")
     );
 };
-function addNewModal(e) {
+async function addNewModal(e) {
   let title = document.getElementById("modal-title");
   let body = document.getElementById("new-modal-body");
-  console.log(title.value, body.value);
-  var params = new URLSearchParams();
-  params.append("param1", "value1");
-  params.append("param2", "value2");
-  // axios.post("/foo", params);
-  blueRex
+  if (title.value == "" || body.value === "") {
+    alert("Fill all the fields!");
+    return 0;
+  }
+  await blueRex
     .post(`${BACKEND_MODULES}executer.php`, {
       title: title.value,
       body: body.value,
@@ -209,10 +208,99 @@ function addNewModal(e) {
     })
     .then((res) => {
       console.log("res: ", res);
+      if (res.trim() === "success") {
+        setMessage(`Modal added Successfully.`, "success");
+        reloadPage();
+        closeModal();
+      }
     })
     .catch((e) => console.log(e));
 }
-
+const handleDeleteModal = async (id, title) => {
+  let c = confirm(`Do you want to delete ${title} Modal?`);
+  if (c) {
+    await blueRex
+      .get(`${BACKEND_MODULES}executer.php?delete-modal=${id}`)
+      .then((e) => {
+        if (e.trim() === "success") {
+          setMessage(`Modal Deleted Successfully.`, "success");
+          reloadPage();
+          closeModal();
+        }
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }
+};
+async function saveEditModal(e, id) {
+  let title = document.getElementById("modal-title");
+  let body = document.getElementById("new-modal-body");
+  if (title.value == "" || body.value === "") {
+    alert("Fill all the fields!");
+    return 0;
+  }
+  await blueRex
+    .post(`${BACKEND_MODULES}executer.php`, {
+      title: title.value,
+      body: body.value,
+      id,
+      updateModal: 1,
+    })
+    .then((res) => {
+      if (res.trim() === "success") {
+        setMessage(`Modal Updated Successfully.`, "success");
+        reloadPage();
+        closeModal();
+      }
+    })
+    .catch((e) => console.log(e));
+}
+function closeModal() {
+  try {
+    document.querySelector("#heavy-modal").innerHTML = "";
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+const handleModalsEdit = (id, title, body) => {
+  createModal({
+    title: "Edit Modal",
+    legend: "Edit title and body",
+    inputs: [
+      {
+        name: "title",
+        type: "text",
+        value: title,
+        id: "modal-title",
+        label: "Enter Modal Title",
+        placeholder: "Enter title here...",
+        required: true,
+      },
+      {
+        name: "body",
+        type: "textarea",
+        id: "new-modal-body",
+        value: body,
+        label:
+          "Enter Modal full text here <small>(You can use HTML tags to format your content).</small>",
+        placeholder: "Enter body here...",
+        required: true,
+      },
+    ],
+    buttons: [
+      {
+        name: "save-modal",
+        value: "Save Modal",
+        type: "submit",
+        id: "save",
+        callback: "saveEditModal",
+        args: id,
+        eventListener: "onclick",
+      },
+    ],
+  });
+};
 const newModal = () => {
   createModal({
     title: "Add new modal",
@@ -229,8 +317,7 @@ const newModal = () => {
         name: "body",
         type: "textarea",
         id: "new-modal-body",
-        label:
-          "Enter Modal full text here <small>(You can use HTML tags to format your content).</small>",
+        label: "Edit Modal text",
         placeholder: "Enter body here...",
       },
     ],
@@ -255,19 +342,29 @@ function createModal(idol) {
           e.label ? e.label : "Enter " + e.name
         }</label>`;
         if (e.type == "textarea") {
-          c += `<textarea id="${e.id ? e.id : e.name}" ${
+          c += `<textarea required='${e.required ? e.required : false}' id="${
+            e.id ? e.id : e.name
+          }" placeholder="Enter modal body...">${
             e.value ? e.value : ""
-          } placeholder="Enter modal body..."></textarea>`;
+          }</textarea>`;
         } else if (e.type == "submit") {
-          c += `<input type='submit' ${e.value ? e.value : ""} name='${
+          c += `<input required='${
+            e.required ? e.required : false
+          }' type='submit' value="${e.value ? e.value : ""}" name='${
             e.name
           }' id='${e.id ? e.id : e.name}' ${
-            e.callback ? `${e.eventListener} = "${e.callback}(this)"` : ""
+            e.callback
+              ? `${e.eventListener} = "${e.callback}(this, ${
+                  e.args ? e.args : ""
+                })"`
+              : ""
           } />`;
         } else {
-          c += `<input value="${e.value ? e.value : ""}" type="${
-            e.type ? e.type : "text"
-          }" id="${e.id ? e.id : e.name}" placeholder="${
+          c += `<input required='${e.required ? e.required : false}' value="${
+            e.value ? e.value : ""
+          }" type="${e.type ? e.type : "text"}" id="${
+            e.id ? e.id : e.name
+          }" placeholder="${
             e.placeholder ? e.placeholder : "Enter here..."
           }" />`;
         }
@@ -279,17 +376,22 @@ function createModal(idol) {
     ? idol.buttons.map((e) => {
         buttons += `<button name='${e.name ? e.name : e.value}' id='${
           e.id ? e.id : e.name
-        }' ${e.callback ? `${e.eventListener} = "${e.callback}(this)"` : ""} >${
-          e.value
-        }</button>`;
+        }' ${
+          e.callback
+            ? `${e.eventListener} = "${e.callback}(this, ${
+                e.args ? e.args : ""
+              })"`
+            : ""
+        } >${e.value}</button>`;
       })
     : "";
   const k = `
       <div class="form-modal active">
       <div class="form-inner-modal">
+      <div class="flex jc-sb">
           <span class="modal-title">${
             idol.title ? idol.title : "Form Modal"
-          }</span>
+          }</span> <span class='close-modal' onclick="closeModal()">&times;</span></div>
           <fieldset>
               <legend>${
                 idol.legend ? idol.legend : "Fill all the fields"
@@ -305,4 +407,65 @@ function createModal(idol) {
     </div>
   `;
   main.innerHTML = k;
+}
+
+function setFlag(cntr) {
+  s = `flag-${cntr.value}`.toLowerCase();
+  f = document.querySelector("#flags");
+  f.className = "";
+  f.classList.add("flag");
+  f.classList.add(s);
+  f.classList.add("flag-normal");
+}
+
+async function submitFirmware(e) {
+  let device_id = document.querySelector("#device-id").value;
+  let device_name = document.querySelector("#device-name").value;
+  let version = document.querySelector("#version").value;
+  let csc = document.querySelector("#csc").value;
+  let country = document.querySelector("#country").value;
+  let os = document.querySelector("#os").value;
+  let level = document.querySelector("#level").value;
+  let bsDate = document.querySelector("#BS-date").value;
+  let fileStatus = document.querySelector("#file-status").value;
+  let buildDate = document.querySelector("#build-date").value;
+  let downFileLink = document.querySelector("#dwn-file-link").value;
+  let confirm =
+    device_id != "" &&
+    device_name != "" &&
+    version != "" &&
+    csc != "" &&
+    country != "" &&
+    os != "" &&
+    buildDate != "";
+  if (confirm) {
+    console.log("hello__xxxs_");
+    e.innerHTML = "Saving...";
+    await blueRex
+      .post(`${BACKEND_MODULES}executer.php`, {
+        new_firmware: 1,
+        device_id,
+        device_name,
+        version,
+        csc,
+        country,
+        os,
+        binary: `
+          ${level},
+          ${bsDate},
+          ${fileStatus},
+        `,
+        buildDate,
+        downloadable_link: downFileLink,
+      })
+      .then((res) => {
+        if (res.trim() === "success") {
+          setMessage(`New firmware added successfully!`, "success");
+        }
+        if (res.trim() === "error") {
+          setMessage("Error happend on adding firmware!", "error");
+        }
+      })
+      .catch((e) => console.log(e));
+  }
 }

@@ -42,7 +42,6 @@ function handleInfoInputs(element, title) {
   childNode.appendChild(div);
 }
 function setMessage(text, type) {
-  console.log("called");
   let html = `<div class="message open ${type}">
                 <span class="text close" onclick="handleMessage(this)">&times;</span>
                 <span class="text">${text}</span>

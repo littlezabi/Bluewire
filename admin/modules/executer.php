@@ -2,6 +2,48 @@
 <?php
 require_once './functions.php';
 require_once './database.php';
+
+if (isset($_POST['new_firmware'])) {
+    $did = $_POST['device_id'];
+    $dname = $_POST['device_name'];
+    $ver = $_POST['version'];
+    $csc = $_POST['csc'];
+    $country = $_POST['country'];
+    $os = $_POST['os'];
+    $binary = $_POST['binary'];
+    $downloadable_link = $_POST['downloadable_link'];
+    $buildDate = $_POST['buildDate'];
+    $sql = "
+        INSERT INTO firmwares
+        (
+            device_id,
+            device,
+            csc,
+            country,
+            version,
+            binary_status,
+            os,
+            build_date,
+            file_link
+        ) VALUES (
+            '$did',
+            '$dname',
+            '$csc',
+            '$country',
+            '$ver',
+            '$binary',
+            '$os',
+            '$buildDate', 
+            '$downloadable_link'
+        )
+    ";
+    if ($con->query($sql)) {
+        exit('success');
+    } else {
+        exit('error');
+    }
+}
+
 function RedirectTo($msg = '', $type = '', $location = '/')
 {
     $_SESSION['message']['text']  = $msg;
@@ -10,7 +52,26 @@ function RedirectTo($msg = '', $type = '', $location = '/')
     exit();
 }
 
+if (isset($_GET['delete-modal'])) {
+    $id = $_GET['delete-modal'];
+    $sql = "DELETE FROM `side-modals` WHERE id = $id";
+    $q = $con->query($sql);
+    exit('success');
+}
+if (isset($_POST['updateModal'])) {
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    $id = $_POST['id'];
+    $sql = "UPDATE `side-modals` SET title = '$title', body='$body' WHERE id = $id";
+    $q = $con->query($sql);
+    exit('success');
+}
 if (isset($_POST['newModal'])) {
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    $sql = "INSERT INTO `side-modals` (`title`, `body`) VALUES('$title', '$body')";
+    $q = $con->query($sql);
+    exit('success');
 }
 
 if (isset($_POST['edit-device'])) {

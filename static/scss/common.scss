@@ -82,3 +82,22 @@ select {
   justify-content: space-between;
   align-items: center;
 }
+.kakxmsdkl tbody > tr {
+  transition: 200ms;
+  &:hover {
+    background: #e91e6330 !important;
+  }
+  & a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.item-title-bar {
+  font-size: 14px;
+  & i {
+    color: white;
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}

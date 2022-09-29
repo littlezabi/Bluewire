@@ -12,12 +12,12 @@ function cleanString($con, $str)
 }
 function getPage()
 {
-    if (isset($_GET['view'])) {
-        if ($_GET['view'] != '')
-            return $_GET['view'];
-        else return 'main';
+    if (isset($_GET['page'])) {
+        if ($_GET['page'] != '')
+            return $_GET['page'];
+        else return 'dashboard';
     } else {
-        return 'main';
+        return 'dashboard';
     }
 }
 function _print($str)
@@ -50,4 +50,15 @@ function URLFormate($str1 = 0, $str2 = 0)
     if ($str1 && $str2) return $return . $str1 . '&id=' . $str2;
     if ($str1) return $return . $str1;
     return $return;
+}
+
+function setTitle($title = 'Dashboard')
+{
+    $cls = $title;
+    $title = str_replace('_', ' ', $title);
+    $title = str_replace('-', ' ', $title);
+    $title = str_replace('.php', ' ', $title);
+    $title = 'Admin | ' . $title;
+    $title = ucwords($title);
+    echo '<script>document.title = "' . $title . '"; setActiveButton("' . $cls . '") </script>';
 }

@@ -27,7 +27,6 @@ const blueRex = {
     const setParams = (d_) => {
       let p = "";
       for (let k in d_) p += k + "=" + d_[k] + "&";
-      console.log(p);
       return p;
     };
     return new Promise((a, b) => {
